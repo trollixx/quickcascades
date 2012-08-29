@@ -1,0 +1,14 @@
+AbstractActionItem 1.0 AbstractActionItem.qml
+AbstractPane 1.0 AbstractPane.qml
+ActionBar 1.0 ActionBar.qml
+ActionItem 1.0 ActionItem.qml
+Button 1.0 Button.qml
+Label 1.0 Label.qml
+NavigationPane 1.0 NavigationPane.qml
+Page 1.0 Page.qml
+TabbedPaneBar 1.0 TabbedPaneBar.qml
+TabbedPane 1.0 TabbedPane.qml
+TabbedPaneSideBar 1.0 TabbedPaneSideBar.qml
+Tab 1.0 Tab.qml
+TextField 1.0 TextField.qml
+TitleBar 1.0 TitleBar.qml

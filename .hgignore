@@ -1,0 +1,8 @@
+syntax: glob
+*.pro.user
+Makefile
+.obj
+.rcc
+.moc
+.uic
+build/
