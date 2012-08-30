@@ -16,7 +16,7 @@ HEADERS += \
 
 
 RESOURCES += \
-    qml.qrc
+    qml/qml.qrc
 
 OTHER_FILES += \
     qml/QuickCascades/qmldir \

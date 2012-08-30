@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/quickcascades">
+        <file>QuickCascades/qmldir</file>
+        <file>QuickCascades/AbstractActionItem.qml</file>
+        <file>QuickCascades/AbstractPane.qml</file>
+        <file>QuickCascades/ActionBar.qml</file>
+        <file>QuickCascades/ActionItem.qml</file>
+        <file>QuickCascades/Button.qml</file>
+        <file>QuickCascades/Label.qml</file>
+        <file>QuickCascades/NavigationPane.qml</file>
+        <file>QuickCascades/Page.qml</file>
+        <file>QuickCascades/Tab.qml</file>
+        <file>QuickCascades/TabbedPane.qml</file>
+        <file>QuickCascades/TabbedPaneBar.qml</file>
+        <file>QuickCascades/TabbedPaneSideBar.qml</file>
+        <file>QuickCascades/TextField.qml</file>
+        <file>QuickCascades/TitleBar.qml</file>
+        <file>QuickCascades/delegates/ActionBarActionDelegate.qml</file>
+        <file>QuickCascades/delegates/SideBarDelegate.qml</file>
+        <file>QuickCascades/delegates/TabDelegate.qml</file>
+        <file>QuickCascades/resources/Button.png</file>
+        <file>QuickCascades/resources/Button_disabled.png</file>
+        <file>QuickCascades/resources/Button_pressed.png</file>
+        <file>QuickCascades/resources/TextField.png</file>
+        <file>QuickCascades/resources/TextField_focused.png</file>
+    </qresource>
+</RCC>
