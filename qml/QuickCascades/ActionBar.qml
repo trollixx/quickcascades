@@ -2,10 +2,10 @@ import QtQuick 1.1
 
 import "delegates"
 
-Image {
+Item {
     id: actionBar
 
-    // Custom Action (menu or back)
+    // Custom Action (menu for TabbedPane or back for NavigationPane)
     property alias customAction: customActionDelegate.action
     // NOTE: Workaround for read-only list<ActionItem>
     property variant actions
@@ -16,8 +16,10 @@ Image {
     height: 150; width: parent.width
     //visible: visibility !== "Hidden"
 
-    fillMode: Image.TileHorizontally
-    source: "qrc:/img/bar_bg.png"
+    Rectangle {
+        anchors.fill: parent
+        color: "#2b2b2b"
+    }
 
     Item {
         anchors.bottom: parent.bottom
