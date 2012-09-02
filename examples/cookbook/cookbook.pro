@@ -1,13 +1,13 @@
 include(../examples.pri)
 
-QT += declarative xml sql network xmlpatterns svg
+QT += declarative xml sql network xmlpatterns
 
-# The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp
 
 OTHER_FILES += bar-descriptor.xml \
-    qml/main.qml \
-    qml/qmldir
+    assets/qmldir \
+    assets/main.qml \
+    assets/common/RecipeItem.qml
 
 RESOURCES += \
     qml.qrc

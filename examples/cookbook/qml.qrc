@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>qml/main.qml</file>
         <file>qml/qmldir</file>
+        <file>images/Book_background.png</file>
     </qresource>
 </RCC>
