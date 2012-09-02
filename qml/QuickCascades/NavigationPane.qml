@@ -65,15 +65,14 @@ AbstractPane {
         Repeater {
             model: pages
 
-            Loader {
-                sourceComponent: Page {
-                    data: modelData
-                    x: index === 0 ? 0 : navigationPane.width
+            Page {
+                data: modelData
+                height: wrapper.height; width: wrapper.width
+                x: index === 0 ? 0 : navigationPane.width
 
-                    Behavior on x {
-                        enabled: parent.parent.x = (index === 0 ? 0 : navigationPane.width)
-                        NumberAnimation { duration: 500; easing.type: Easing.InOutQuad }
-                    }
+                Behavior on x {
+                    enabled: parent.x !== (index === 0 ? 0 : navigationPane.width)
+                    NumberAnimation { duration: 500; easing.type: Easing.InOutQuad }
                 }
             }
         }
