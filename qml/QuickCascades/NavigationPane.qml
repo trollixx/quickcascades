@@ -11,6 +11,14 @@ AbstractPane {
     signal popped(int index)
     signal pushed(int index)
 
+    Component.onCompleted: {
+        /// FIXME: Workaround for size properties not binding properly inside Repeater somewhy
+        for (var i = 0; i < pages.length; ++i) {
+            pages[i].width = function(){return width}
+            pages[i].height = function(){return height}
+        }
+    }
+
     function __stackTop(startIndex) {
         for (var i = (startIndex || pages.length) - 1; i >= 0; --i) {
             if (wrapper.children[i].x === 0) {
@@ -52,18 +60,20 @@ AbstractPane {
     Item {
         id: wrapper
 
-        height: parent.height; width: parent.width
+        anchors.fill: parent
 
         Repeater {
             model: pages
 
-            Page {
-                data: modelData
-                x: index === 0 ? 0 : navigationPane.width
+            Loader {
+                sourceComponent: Page {
+                    data: modelData
+                    x: index === 0 ? 0 : navigationPane.width
 
-                Behavior on x {
-                    enabled: parent.parent.x = (index === 0 ? 0 : navigationPane.width)
-                    NumberAnimation { duration: 500; easing.type: Easing.InOutQuad }
+                    Behavior on x {
+                        enabled: parent.parent.x = (index === 0 ? 0 : navigationPane.width)
+                        NumberAnimation { duration: 500; easing.type: Easing.InOutQuad }
+                    }
                 }
             }
         }
