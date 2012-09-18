@@ -5,14 +5,18 @@ Item {
     property alias color: labelText.color
     property alias font: labelText.font
 
-    height: 37; width: labelText.implicitWidth || 1 // Empty labels should always occupy some space
+    height: 61; width: labelText.implicitWidth || 1 // Empty labels should always occupy some space
 
     Text {
         id: labelText
+        anchors.verticalCenter: parent.verticalCenter
 
         color: "white"
+        elide: Text.ElideRight
         font.pointSize: 24
         smooth: true
+        style: Text.Raised
+        styleColor: "black"
     }
 }
 
