@@ -2,10 +2,13 @@ import QtQuick 1.1
 import QuickCascades 1.0
 
 Item {
+    id: recipeItem
     height: 180; width: 720
 
     property alias image: itemImage.source
     property alias title: itemTitle.text
+
+    signal clicked
 
     Image {
         height: 173; width: parent.width
@@ -40,6 +43,7 @@ Item {
             anchors.fill: parent
             onPressAndHold: highlight.opacity = 0.9
             onReleased: highlight.opacity = 0
+            onClicked: recipeItem.clicked()
         }
     }
 }

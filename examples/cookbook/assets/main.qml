@@ -37,6 +37,8 @@ NavigationPane {
                 delegate: RecipeItem {
                     image: "assets/" + model.image
                     title: model.title
+
+                    onClicked: push(pageIntroduction)
                 }
             }
         },
