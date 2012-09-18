@@ -21,7 +21,5 @@
         <file>QuickCascades/resources/Button.png</file>
         <file>QuickCascades/resources/Button_disabled.png</file>
         <file>QuickCascades/resources/Button_pressed.png</file>
-        <file>QuickCascades/resources/TextField.png</file>
-        <file>QuickCascades/resources/TextField_focused.png</file>
     </qresource>
 </RCC>
