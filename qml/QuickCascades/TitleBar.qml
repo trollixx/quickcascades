@@ -4,7 +4,6 @@ Item {
     property alias title: titleText.text
     property alias subtitle: subtitleText.text
 
-    anchors.top: parent.top
     height: 120; width: parent.width
     z: 100
 
