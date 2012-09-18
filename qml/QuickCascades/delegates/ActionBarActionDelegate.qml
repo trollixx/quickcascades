@@ -7,7 +7,7 @@ Item {
 
     signal clicked
 
-    width: 153; height: 140
+    height: 140; width: 153
 
     Image {
         id: backgroundImage
@@ -16,38 +16,38 @@ Item {
             fill: parent
         }
 
-        source: action ? action.backgroundImageSource : ""
+        source: action.backgroundImageSource
     }
 
-    Image {
-        id: iconImage
+    Column {
+        anchors.centerIn: parent
+        width: parent.width
 
-        anchors {
-            horizontalCenter: parent.horizontalCenter
-            verticalCenter: parent.verticalCenter
+        Image {
+            id: iconImage
+
+            anchors.horizontalCenter: parent.horizontalCenter
+            height: 81; width: 81
+
+            source: action.imageSource
         }
-        height: 81; width: 81
 
-        source: action ? action.imageSource : ""
-    }
+        Text {
+            id: textText
 
-    Text {
-        id: textText
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: parent.width - 20
+            visible: text !== ""
 
-        anchors {
-            top: iconImage.bottom
-            horizontalCenter: parent.horizontalCenter
+            color: "white"
+            elide: Text.ElideRight
+            font.pointSize: 18
+            horizontalAlignment: Text.AlignHCenter
+            style: Text.Raised
+            styleColor: "black"
+
+            text: action.title
         }
-        width: parent.width - 20
-
-        color: "white"
-        elide: Text.ElideRight
-        font.pointSize: 18
-        horizontalAlignment: Text.AlignHCenter
-        style: Text.Raised
-        styleColor: "black"
-
-        text: action ? action.title : ""
     }
 
     MouseArea {

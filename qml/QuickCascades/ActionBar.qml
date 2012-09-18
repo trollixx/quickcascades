@@ -18,7 +18,7 @@ Item {
 
     Rectangle {
         anchors.fill: parent
-        color: "#2b2b2b"
+        color: ThemeManager.actionBarBackgroundColor
     }
 
     Item {
@@ -27,9 +27,6 @@ Item {
 
         ActionBarActionDelegate {
             id: customActionDelegate
-
-            //width: 153
-            //width: 170
             visible: customAction !== null
         }
 

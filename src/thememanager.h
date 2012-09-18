@@ -14,6 +14,9 @@ class ThemeManager : public QObject
     // Default styles
     Q_PROPERTY(QColor backgroundColor READ backgroundColor CONSTANT)
 
+    // ActionBar
+    Q_PROPERTY(QColor actionBarBackgroundColor READ actionBarBackgroundColor CONSTANT)
+
     // Text Field
     Q_PROPERTY(QColor textFieldBackgroundColor READ textFieldBackgroundColor CONSTANT)
     Q_PROPERTY(QColor textFieldBorderColor READ textFieldBorderColor CONSTANT)
@@ -23,6 +26,8 @@ public:
     ~ThemeManager() {}
 
     QColor backgroundColor() const { return QColor("#262626"); }
+
+    QColor actionBarBackgroundColor() const { return QColor("#2b2b2b"); }
 
     QColor textFieldBackgroundColor() const { return QColor("#f9f9f9"); }
     QColor textFieldBorderColor() const { return QColor("#aaa"); }
