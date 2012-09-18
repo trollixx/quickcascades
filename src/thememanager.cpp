@@ -12,12 +12,3 @@ ThemeManager::ThemeManager(QObject *parent):
     // setFlag(ItemHasNoContents, false);
 }
 
-ThemeManager::~ThemeManager()
-{
-}
-
-QColor ThemeManager::backgroundColor() const
-{
-    return QColor("#262626");
-}
-

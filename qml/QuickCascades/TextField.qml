@@ -7,48 +7,33 @@ Rectangle {
     property alias hintText: hintText.text
     property alias text: textInput.text
 
+    signal textChanged
+
     height: 83; width: 606
 
-    color: "#f9f9f9"
+    border {
+        color: ThemeManager.textFieldBorderColor
+        width: 3
+    }
+    color: ThemeManager.textFieldBackgroundColor
+    radius: 5
 
     states: [
         State {
             name: "focused"
             when: textInput.activeFocus
             PropertyChanges {
-                target: focusedBorderImage
-                opacity: 1
+                target: component
+                border.color: ThemeManager.textFieldBorderColorFocused
             }
         }
     ]
 
     transitions: [
         Transition {
-            NumberAnimation { properties: "opacity"; duration: 50 }
+            ColorAnimation { properties: "border.color"; duration: 50 }
         }
     ]
-
-    BorderImage {
-        id: defaultBorderImage
-        anchors.fill: parent
-
-        border.left: 10; border.top: 10
-        border.right: 10; border.bottom: 10
-
-        source: "resources/TextField.png"
-    }
-
-    BorderImage {
-        id: focusedBorderImage
-        anchors.fill: parent
-
-        border.left: 10; border.top: 10
-        border.right: 10; border.bottom: 10
-
-        opacity: 0
-
-        source: "resources/TextField_focused.png"
-    }
 
     Text {
         id: hintText
@@ -63,9 +48,12 @@ Rectangle {
         visible: component.state !== "focused" && textInput.text === ""
 
         color: "gray"
-        font.italic: true
-        font.pointSize: 24
-        smooth: true
+        font { italic: true; pointSize: 24 }
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        onClicked: textInput.forceActiveFocus()
     }
 
     TextInput {
@@ -78,11 +66,12 @@ Rectangle {
         }
 
         clip: true
-
         font.pointSize: 24
-        smooth: true
+
+        onTextChanged: {
+            component.textChanged()
+            /// FIXME: Why is it needed?
+            forceActiveFocus()
+        }
     }
-
 }
-
-
