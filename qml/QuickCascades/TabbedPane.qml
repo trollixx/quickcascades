@@ -33,6 +33,11 @@ AbstractPane {
                 })
             }
         }
+
+        if (tabs[0].content.__qcType === "NavigationPane"
+                || tabs[0].content.__qcType === "Page") {
+            actionBar.actions = tabs[0].content.actions
+        }
     }
 
     Behavior on x {
@@ -63,6 +68,10 @@ AbstractPane {
 
         onActiveTabChanged: {
             activePane = actionBar.activeTab.content
+            if (activePane.__qcType === "NavigationPane"
+                    || activePane.__qcType === "Page") {
+                actionBar.actions = activePane.actions
+            }
         }
 
         onMenuTriggered: {

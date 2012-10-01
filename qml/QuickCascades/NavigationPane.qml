@@ -7,17 +7,10 @@ AbstractPane {
     property string __qcType: "NavigationPane"
     property list<Page> pages
     property int __pageIndex: 0
+    property alias actions: actionBar.actions
 
     signal popped(int index)
     signal pushed(int index)
-
-    Component.onCompleted: {
-        /// FIXME: Workaround for size properties not binding properly inside Repeater somewhy
-        for (var i = 0; i < pages.length; ++i) {
-            pages[i].width = function(){return width}
-            pages[i].height = function(){return height}
-        }
-    }
 
     function __stackTop(startIndex) {
         for (var i = (startIndex || pages.length) - 1; i >= 0; --i) {
@@ -57,17 +50,20 @@ AbstractPane {
         actionBar.actions = pages[__pageIndex].actions
     }
 
+    Component.onCompleted: {
+        actionBar.actions = pages[0].actions
+    }
+
     Item {
         id: wrapper
 
-        anchors.fill: parent
+        height: parent.height; width: parent.width
 
         Repeater {
             model: pages
 
             Page {
                 data: modelData
-                height: wrapper.height; width: wrapper.width
                 x: index === 0 ? 0 : navigationPane.width
 
                 Behavior on x {
