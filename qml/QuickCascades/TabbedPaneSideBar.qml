@@ -3,7 +3,7 @@ import QtQuick 1.1
 Rectangle {
     property alias items: actionsWrapper.children
 
-    height: parent.height; width: 572
+    height: parent.height; width: parent.width - 153
     x: -width
     color: "#151926"
 
