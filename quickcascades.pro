@@ -8,10 +8,12 @@ uri = QuickCascades
 
 SOURCES += \
     src/quickcascades_plugin.cpp \
+    src/screen.cpp \
     src/thememanager.cpp
 
 HEADERS += \
     src/quickcascades_plugin.h \
+    src/screen.h \
     src/thememanager.h
 
 
