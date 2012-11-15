@@ -1,4 +1,4 @@
-import QtQuick 1.1
+import QtQuick 2.0
 import QuickCascades 1.0
 
 import "delegates"
@@ -9,6 +9,8 @@ AbstractPane {
     property list<ActionItem> actions
     //property alias actionBarVisibility: actionBar.visibility
     property TitleBar titleBar
+
+    height: 1280; width: 720
 
     Rectangle {
         anchors.fill: parent

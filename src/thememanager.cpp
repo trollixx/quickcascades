@@ -1,7 +1,5 @@
 #include "thememanager.h"
 
-#include <qdeclarative.h>
-
 ThemeManager::ThemeManager(QObject *parent):
     QObject(parent)
 {

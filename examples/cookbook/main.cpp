@@ -1,22 +1,20 @@
-#include <QtCore>
-#include <QtGui>
-#include <QtDeclarative>
-
-#include <QDir>
+#include <QGuiApplication>
+#include <QQmlEngine>
+#include <QQuickView>
 
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
+    QGuiApplication app(argc, argv);
 
     //qputenv("QML_IMPORT_TRACE", "1");
 
-    QDeclarativeView *m_view = new QDeclarativeView();
+    QQuickView *m_view = new QQuickView();
     QObject::connect(m_view->engine(), SIGNAL(quit()), &app, SLOT(quit()));
 
     m_view->engine()->addPluginPath("../../build");
 
-    m_view->setSource(QUrl("assets/main.qml"));
-    m_view->setResizeMode(QDeclarativeView::SizeRootObjectToView);
+    m_view->setSource(QUrl::fromLocalFile("assets/main.qml"));
+    m_view->setResizeMode(QQuickView::SizeRootObjectToView);
 
 #ifdef Q_OS_BLACKBERRY
     m_view->showFullScreen();

@@ -1,4 +1,4 @@
-import QtQuick 1.1
+import QtQuick 2.0
 
 import "delegates"
 
@@ -54,7 +54,7 @@ AbstractPane {
         actionBar.actions = pages[0].actions
     }
 
-    Item {
+    Rectangle {
         id: wrapper
 
         height: parent.height; width: parent.width
@@ -62,9 +62,13 @@ AbstractPane {
         Repeater {
             model: pages
 
+            //anchors.fill: parent
+
             Page {
                 data: modelData
                 x: index === 0 ? 0 : navigationPane.width
+
+                //height: wrapper.height; width: wrapper.width
 
                 Behavior on x {
                     enabled: parent.x !== (index === 0 ? 0 : navigationPane.width)

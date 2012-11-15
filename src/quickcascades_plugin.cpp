@@ -1,9 +1,8 @@
 #include "quickcascades_plugin.h"
 #include "thememanager.h"
 
-#include <qdeclarative.h>
-#include <QDeclarativeContext>
-#include <QDeclarativeEngine>
+#include <QQmlContext>
+#include <QQmlEngine>
 
 void QuickCascadesPlugin::registerTypes(const char *uri)
 {
@@ -12,12 +11,12 @@ void QuickCascadesPlugin::registerTypes(const char *uri)
     //qmlRegisterType<ThemeManager>(uri, 1, 0, "ThemeManager");
 }
 
-void QuickCascadesPlugin::initializeEngine(QDeclarativeEngine *engine, const char *uri)
+void QuickCascadesPlugin::initializeEngine(QQmlEngine *engine, const char *uri)
 {
     Q_UNUSED(uri)
-    engine->rootContext()->setContextProperty("ThemeManager", new ThemeManager());
+
     engine->addImportPath(":/quickcascades");
+    engine->rootContext()->setContextProperty("ThemeManager", new ThemeManager());
 }
 
-Q_EXPORT_PLUGIN2(QuickCascades, QuickCascadesPlugin)
 
