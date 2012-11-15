@@ -10,8 +10,6 @@ AbstractPane {
     //property alias actionBarVisibility: actionBar.visibility
     property TitleBar titleBar
 
-    height: 1280; width: 720
-
     Rectangle {
         anchors.fill: parent
         color: ThemeManager.backgroundColor
@@ -21,16 +19,4 @@ AbstractPane {
         data: titleBar
         visible: titleBar !== null
     }
-
-    /*ActionBar {
-        id: actionBar
-        actions: Repeater {
-            model: page.actions
-            ActionBarActionDelegate {
-                action: ActionItem {
-                    title: modelData.title
-                }
-            }
-        }
-    }*/
 }

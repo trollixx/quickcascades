@@ -4,8 +4,12 @@ Item {
     property alias title: titleText.text
     property alias subtitle: subtitleText.text
 
-    height: 120; width: parent.width
+    height: 120; width: Screen.width
     z: 100
+
+    MouseArea {
+        anchors.fill: parent
+    }
 
     Rectangle {
         anchors.fill: parent
