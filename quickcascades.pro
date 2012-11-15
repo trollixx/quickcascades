@@ -36,7 +36,8 @@ OTHER_FILES += \
     qml/QuickCascades/TitleBar.qml \
     qml/QuickCascades/delegates/TabDelegate.qml \
     qml/QuickCascades/delegates/ActionBarActionDelegate.qml \
-    qml/QuickCascades/delegates/SideBarDelegate.qml
+    qml/QuickCascades/delegates/SideBarDelegate.qml \
+    qml/QuickCascades/Window.qml
 
 
 #!equals(_PRO_FILE_PWD_, $$OUT_PWD) {

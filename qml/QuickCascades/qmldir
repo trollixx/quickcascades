@@ -12,3 +12,4 @@ TabbedPaneSideBar 1.0 TabbedPaneSideBar.qml
 Tab 1.0 Tab.qml
 TextField 1.0 TextField.qml
 TitleBar 1.0 TitleBar.qml
+Window 1.0 Window.qml
