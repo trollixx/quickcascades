@@ -8,7 +8,7 @@ Item {
     // Custom Action (menu for TabbedPane or back for NavigationPane)
     property alias customAction: customActionDelegate.action
     // NOTE: Workaround for read-only list<ActionItem>
-    property variant actions
+    property var actions
     /// TODO: Move this to C++ enum as QML doesn't allow to declare enums
     property string visibility
 
