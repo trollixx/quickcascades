@@ -13,7 +13,7 @@ Item {
     property string visibility
 
     anchors.bottom: parent.bottom
-    height: 150; width: Screen.width
+    implicitHeight: 150; implicitWidth: parent.width
     //visible: visibility !== "Hidden"
 
     Rectangle {
