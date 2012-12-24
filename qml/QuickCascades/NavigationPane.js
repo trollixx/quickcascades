@@ -125,7 +125,7 @@ function initPage(page, properties) {
     if (page.createObject) {
         // page defined as component
         pageComp = page;
-    } else if (typeof page == "string") {
+    } else if (typeof page === "string") {
         // page defined as string (a url)
         pageComp = componentCache[page];
         if (!pageComp) {
@@ -152,7 +152,7 @@ function initPage(page, properties) {
     container.owner = page.parent;
 
     // the page has to be reparented if
-    if (page.parent != container) {
+    if (page.parent !== container) {
         page.parent = container;
     }
 
@@ -172,7 +172,7 @@ function pop(page, immediate) {
         var container = pageStack[pageStack.length - 1];
         if (page !== undefined) {
             // an unwind target has been specified - pop until we find it
-            while (page != container.page && pageStack.length > 1) {
+            while (page !== container.page && pageStack.length > 1) {
                 container.cleanup();
                 pageStack.pop();
                 container = pageStack[pageStack.length - 1];
@@ -197,13 +197,6 @@ function pop(page, immediate) {
     }
 }
 
-// Checks if the orientation changes between oldPage and newPage
-function orientationChanges(oldPage, newPage) {
-    return newPage.orientationLock != PageOrientation.Automatic
-            && newPage.orientationLock != PageOrientation.LockPrevious
-            && newPage.orientationLock != oldPage.orientationLock
-}
-
 // Clears the page stack.
 function clear() {
     var container;
@@ -224,4 +217,3 @@ function find(func) {
     }
     return null;
 }
-
