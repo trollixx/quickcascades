@@ -20,8 +20,12 @@
         <file>QuickCascades/delegates/ActionBarActionDelegate.qml</file>
         <file>QuickCascades/delegates/SideBarDelegate.qml</file>
         <file>QuickCascades/delegates/TabDelegate.qml</file>
+
         <file>QuickCascades/resources/Button.png</file>
         <file>QuickCascades/resources/Button_disabled.png</file>
         <file>QuickCascades/resources/Button_pressed.png</file>
+
+        <!-- Subway Icons Set (http://subway.pixle.pl/) -->
+        <file alias="icon_back">QuickCascades/resources/icon_back.png</file>
     </qresource>
 </RCC>

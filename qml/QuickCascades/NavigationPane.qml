@@ -82,7 +82,7 @@ AbstractPane {
         id: actionBar
 
         customAction: ActionItem {
-            //imageSource: "qrc:/img/icon_back"
+            imageSource: "qrc:/quickcascades/icon_back"
             //backgroundImageSource: "qrc:/img/back_action_bg"
             title: qsTr("Back")
             onTriggered: pop()
