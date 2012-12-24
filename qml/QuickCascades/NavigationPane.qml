@@ -62,13 +62,10 @@ AbstractPane {
         Repeater {
             model: pages
 
-            //anchors.fill: parent
-
             Page {
                 data: modelData
+                height: wrapper.height; width: wrapper.width
                 x: index === 0 ? 0 : navigationPane.width
-
-                //height: wrapper.height; width: wrapper.width
 
                 Behavior on x {
                     enabled: parent.x !== (index === 0 ? 0 : navigationPane.width)
