@@ -2,4 +2,5 @@ include(examples.pri)
 
 TEMPLATE = subdirs
 
-SUBDIRS += cookbook
+SUBDIRS += test
+#cookbook
