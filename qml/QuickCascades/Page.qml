@@ -10,6 +10,7 @@ AbstractPane {
     default property alias data: childrenWrapper.data
     property string __qcType: "Page"
     property list<ActionItem> actions
+    property AbstractPane container
     property TitleBar titleBar: null
 
     height: parent.height; width: parent.width
