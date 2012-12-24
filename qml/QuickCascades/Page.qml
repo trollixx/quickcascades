@@ -1,17 +1,18 @@
 import QtQuick 2.0
-import QtQuick.Window 2.0
+
 import QuickCascades 1.0
 
 import "delegates"
 
 AbstractPane {
-    id: page
+    id: root
 
     default property alias data: childrenWrapper.data
     property string __qcType: "Page"
     property list<ActionItem> actions
     property TitleBar titleBar: null
 
+    height: parent.height; width: parent.width
 
     TitleBar {
         data: titleBar
@@ -32,19 +33,27 @@ AbstractPane {
 
             Column {
                 id: column
-                height: Math.max(Screen.height, childrenRect.height)
-                width: Math.max(Screen.width, childrenRect.width)
 
                 Item {
-                    height: titleBar ? titleBar.height : 0; width: Screen.width
+                    height: titleBar ? titleBar.height : 0; width: root.width
                     visible: titleBar && titleBar.visible
                 }
 
                 Item {
                     id: childrenWrapper
-                    height: childrenRect.height; width: childrenRect.width
+
+                    Component.onCompleted: if (childrenRect.height > implicitHeight) height = childrenRect.height
+
+                    implicitHeight: root.height - (titleBar ? titleBar.height : 0)
+                    implicitWidth: root.width
                 }
             }
         }
+    }
+
+    ActionBar {
+        id: __actionBar
+        actions: root.actions
+        visible: actions.length > 0
     }
 }

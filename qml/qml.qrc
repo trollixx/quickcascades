@@ -1,12 +1,13 @@
 <RCC>
     <qresource prefix="/quickcascades">
-        <file>QuickCascades/qmldir</file>
+        <!--file>QuickCascades/qmldir</file>
         <file>QuickCascades/AbstractActionItem.qml</file>
         <file>QuickCascades/AbstractPane.qml</file>
         <file>QuickCascades/ActionBar.qml</file>
         <file>QuickCascades/ActionItem.qml</file>
         <file>QuickCascades/Button.qml</file>
         <file>QuickCascades/Label.qml</file>
+        <file>QuickCascades/NavigationPane.js</file>
         <file>QuickCascades/NavigationPane.qml</file>
         <file>QuickCascades/Page.qml</file>
         <file>QuickCascades/Tab.qml</file>
@@ -23,7 +24,7 @@
 
         <file>QuickCascades/resources/Button.png</file>
         <file>QuickCascades/resources/Button_disabled.png</file>
-        <file>QuickCascades/resources/Button_pressed.png</file>
+        <file>QuickCascades/resources/Button_pressed.png</file-->
 
         <!-- Subway Icons Set (http://subway.pixle.pl/) -->
         <file alias="icon_back">QuickCascades/resources/icon_back.png</file>

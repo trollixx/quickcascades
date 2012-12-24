@@ -13,8 +13,10 @@ SOURCES += \
 
 HEADERS += \
     src/quickcascades_plugin.h \
+    src/quickcascades.h \
     src/screen.h \
     src/thememanager.h
+
 
 
 RESOURCES += \
@@ -28,6 +30,7 @@ OTHER_FILES += \
     qml/QuickCascades/ActionItem.qml \
     qml/QuickCascades/Button.qml \
     qml/QuickCascades/Label.qml \
+    qml/QuickCascades/NavigationPane.js \
     qml/QuickCascades/NavigationPane.qml \
     qml/QuickCascades/Page.qml \
     qml/QuickCascades/TabbedPane.qml \
@@ -52,7 +55,7 @@ OTHER_FILES += \
 
 qmldir.files = qml/QuickCascades/qmldir
 
-DESTDIR = build
+DESTDIR = qml/QuickCascades
 OBJECTS_DIR = .obj
 MOC_DIR = .moc
 RCC_DIR = .rcc

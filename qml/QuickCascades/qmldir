@@ -1,3 +1,5 @@
+module QuickCascades
+plugin QuickCascades
 AbstractActionItem 1.0 AbstractActionItem.qml
 AbstractPane 1.0 AbstractPane.qml
 ActionBar 1.0 ActionBar.qml

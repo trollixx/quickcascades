@@ -1,4 +1,6 @@
 #include "quickcascades_plugin.h"
+
+#include "quickcascades.h"
 #include "screen.h"
 #include "thememanager.h"
 
@@ -7,16 +9,14 @@
 
 void QuickCascadesPlugin::registerTypes(const char *uri)
 {
-    Q_UNUSED(uri)
     // @uri QuickCascades
-    //qmlRegisterType<ThemeManager>(uri, 1, 0, "ThemeManager");
+    qmlRegisterUncreatableType<QCPageStatus>(uri, 1, 0, "PageStatus", "");
 }
 
 void QuickCascadesPlugin::initializeEngine(QQmlEngine *engine, const char *uri)
 {
     Q_UNUSED(uri)
 
-    engine->addImportPath(":/quickcascades");
-    engine->rootContext()->setContextProperty("Screen", new Screen());
+    //engine->rootContext()->setContextProperty("Screen", new Screen());
     engine->rootContext()->setContextProperty("ThemeManager", new ThemeManager());
 }
