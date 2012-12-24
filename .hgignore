@@ -1,8 +1,9 @@
 syntax: glob
-*.pro.user
+*.pro.user*
 Makefile
 .obj
 .rcc
 .moc
 .uic
 build/
+*.so
