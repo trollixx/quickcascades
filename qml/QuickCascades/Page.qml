@@ -8,7 +8,7 @@ AbstractPane {
     id: root
 
     default property alias data: childrenWrapper.data
-    property string __qcType: "Page"
+
     property list<ActionItem> actions
     property AbstractPane container
     property TitleBar titleBar: null

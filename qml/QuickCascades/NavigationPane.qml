@@ -7,7 +7,7 @@ import "NavigationPane.js" as Engine
 
 AbstractPane {
     id: root
-    property string __qcType: "NavigationPane"
+
     property Page currentPage: null
     property int depth: Engine.getDepth()
     property Page initialPage: null
