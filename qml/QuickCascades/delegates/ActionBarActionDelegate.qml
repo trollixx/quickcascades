@@ -5,17 +5,11 @@ import QuickCascades 1.0
 Item {
     property ActionItem action
 
-    signal clicked
-
-    height: 140; width: 153
+    height: 140; width: 150
 
     Image {
         id: backgroundImage
-
-        anchors {
-            fill: parent
-        }
-
+        anchors.fill: parent
         source: action.backgroundImageSource
     }
 
@@ -52,7 +46,6 @@ Item {
 
     MouseArea {
         anchors.fill: parent
-
         onClicked: action.triggered()
     }
 }
