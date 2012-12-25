@@ -1,6 +1,6 @@
 import QtQuick 2.0
 
-import ".."
+import QuickCascades 1.0
 
 Item {
     property ActionItem action
