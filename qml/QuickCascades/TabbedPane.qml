@@ -18,11 +18,12 @@ AbstractPane {
     }
 
     Component.onCompleted: {
+        var contentType;
         for (var i = 0; i < tabs.length; ++i) {
             if (!tabs[i].content)
                 continue;
 
-            var contentType = tabs[i].content.toString().split('_')[0]
+            contentType = tabs[i].content.toString().split('_')[0]
             if (contentType === "NavigationPane") {
                 tabs[i].content.pushed.connect(function(index) {
                     if (index > 0) {
@@ -37,7 +38,7 @@ AbstractPane {
             }
         }
 
-        var contentType = tabs[0].content.toString().split('_')[0]
+        contentType = tabs[0].content.toString().split('_')[0]
         if (contentType === "NavigationPane" || contentType === "Page") {
             actionBar.actions = tabs[0].content.actions
         }
