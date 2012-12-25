@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtQuick.Window 2.0
 import QuickCascades 1.0
 
-import "delegates"
+import "private"
 import "NavigationPane.js" as Engine
 
 AbstractPane {

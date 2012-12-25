@@ -1,6 +1,6 @@
 import QtQuick 2.0
 
-import "delegates"
+import "private"
 
 AbstractPane {
     id: tabbedPane

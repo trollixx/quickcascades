@@ -39,9 +39,9 @@ OTHER_FILES += \
     qml/QuickCascades/TabbedPaneBar.qml \
     qml/QuickCascades/TabbedPaneSideBar.qml \
     qml/QuickCascades/TitleBar.qml \
-    qml/QuickCascades/delegates/TabDelegate.qml \
-    qml/QuickCascades/delegates/ActionBarActionDelegate.qml \
-    qml/QuickCascades/delegates/SideBarDelegate.qml
+    qml/QuickCascades/private/TabDelegate.qml \
+    qml/QuickCascades/private/ActionBarActionDelegate.qml \
+    qml/QuickCascades/private/SideBarDelegate.qml
 
 
 #!equals(_PRO_FILE_PWD_, $$OUT_PWD) {
