@@ -46,14 +46,20 @@ AbstractPane {
                     Component.onCompleted: if (childrenRect.height > implicitHeight) height = childrenRect.height
 
                     implicitHeight: root.height - (titleBar ? titleBar.height : 0)
+                                    - (actionBar.visible ? actionBar.height : 0)
                     implicitWidth: root.width
+                }
+
+                Item {
+                    height: actionBar.height; width: root.width
+                    visible: actionBar.visible
                 }
             }
         }
     }
 
     ActionBar {
-        id: __actionBar
+        id: actionBar
         actions: root.actions
         visible: actions.length > 0
     }
