@@ -13,6 +13,18 @@ NavigationPane {
             title: "Page 1"
         }
 
+        actions: [
+            ActionItem {
+                title: "Test 1"
+            },
+            ActionItem {
+                title: "Test 2"
+            },
+            ActionItem {
+                title: "Test 3"
+            }
+        ]
+
         Rectangle {
             anchors.centerIn: parent
             color: "green"
