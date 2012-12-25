@@ -1,13 +1,13 @@
 import QtQuick 2.0
 
-import "delegates"
+import "private"
 
 Item {
     id: actionBar
 
     // Custom Action (menu for TabbedPane or back for NavigationPane)
-    property alias customAction: customActionDelegate.action
-    // NOTE: Workaround for read-only list<ActionItem>
+    // property alias customAction: customActionDelegate.action
+
     property var actions
     /// TODO: Move this to C++ enum as QML doesn't allow to declare enums
     property string visibility
@@ -25,10 +25,10 @@ Item {
         anchors.bottom: parent.bottom
         height: 140; width: parent.width
 
-        ActionBarActionDelegate {
+        /*ActionBarActionDelegate {
             id: customActionDelegate
             visible: customAction !== null
-        }
+        }*/
 
         Row {
             anchors.right: parent.right
