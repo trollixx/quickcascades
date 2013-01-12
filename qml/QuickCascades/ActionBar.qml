@@ -10,6 +10,7 @@ Item {
 
     anchors.bottom: parent.bottom
     implicitHeight: 140; implicitWidth: parent.width
+    visible: actions && actions.length
 
     Rectangle {
         anchors.fill: parent
