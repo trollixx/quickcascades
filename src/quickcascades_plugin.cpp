@@ -3,6 +3,7 @@
 #include "quickcascades.h"
 #include "thememanager.h"
 
+#include <QtQml>
 #include <QQmlContext>
 #include <QQmlEngine>
 
