@@ -4,11 +4,17 @@ import QuickCascades 1.0
 Item {
     property Action action
 
-    height: 140; width: 150
+    implicitHeight: 140; implicitWidth: 101
+
+    Rectangle {
+        anchors.top: parent.top
+        color: mouseArea.pressed ? "#00aae7" : "transparent"
+        height: 8; width: parent.width
+    }
 
     Column {
-        anchors.centerIn: parent
-        width: parent.width
+        anchors.horizontalCenter: parent.horizontalCenter
+        height: parent.height; width: 101
 
         Image {
             id: iconImage
@@ -28,6 +34,7 @@ Item {
     }
 
     MouseArea {
+        id: mouseArea
         anchors.fill: parent
         onClicked: action.triggered()
     }
