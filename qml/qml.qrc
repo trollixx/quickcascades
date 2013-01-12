@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/quickcascades">
         <!--file>QuickCascades/qmldir</file>
-        <file>QuickCascades/AbstractActionItem.qml</file>
         <file>QuickCascades/AbstractPane.qml</file>
         <file>QuickCascades/ActionBar.qml</file>
         <file>QuickCascades/ActionItem.qml</file>

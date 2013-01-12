@@ -24,7 +24,6 @@ RESOURCES += \
 
 OTHER_FILES += \
     qml/QuickCascades/qmldir \
-    qml/QuickCascades/AbstractActionItem.qml \
     qml/QuickCascades/AbstractPane.qml \
     qml/QuickCascades/ActionBar.qml \
     qml/QuickCascades/ActionItem.qml \

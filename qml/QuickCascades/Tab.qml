@@ -1,5 +1,5 @@
 import QtQuick 2.0
 
-AbstractActionItem {
+ActionItem {
     default property AbstractPane content
 }
