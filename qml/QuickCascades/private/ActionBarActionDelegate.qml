@@ -7,8 +7,7 @@ Item {
     implicitHeight: 140; implicitWidth: 101
 
     Column {
-        anchors.horizontalCenter: parent.horizontalCenter
-        height: parent.height; width: 101
+        anchors.fill: parent
         spacing: 5
 
         Rectangle {
