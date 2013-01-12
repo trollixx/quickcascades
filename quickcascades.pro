@@ -22,9 +22,9 @@ OTHER_FILES += \
     qml/QuickCascades/Action.qml \
     qml/QuickCascades/ActionBar.qml \
     qml/QuickCascades/Label.qml \
-    qml/QuickCascades/NavigationPane.js \
-    qml/QuickCascades/NavigationPane.qml \
     qml/QuickCascades/Page.qml \
+    qml/QuickCascades/PageStack.qml \
+    qml/QuickCascades/PageStack.js \
     qml/QuickCascades/Tab.qml \
     qml/QuickCascades/TextField.qml \
     qml/QuickCascades/TitleBar.qml \

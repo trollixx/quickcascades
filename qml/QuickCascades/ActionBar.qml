@@ -3,7 +3,7 @@ import QtQuick 2.0
 import "private"
 
 Item {
-    // Custom Action (menu for TabbedPane or back for NavigationPane)
+    // Custom Action (menu for TabbedPane or back for PageStack)
     // property alias customAction: customActionDelegate.action
 
     property var actions

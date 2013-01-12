@@ -40,7 +40,7 @@ import QtQuick.Window 2.0
 import QuickCascades 1.0
 
 import "private"
-import "NavigationPane.js" as Engine
+import "PageStack.js" as Engine
 
 AbstractPane {
     id: root
