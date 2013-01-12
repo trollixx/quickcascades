@@ -1,22 +1,45 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
 <qnx xmlns="http://www.qnx.com/schemas/application/1.0">
-    <id>qc_cookbook</id>
-    <name>QC Cookbook</name>
-    <versionNumber>0.0.1</versionNumber>
-    <description>QuickCascades Cookbook</description>
-
+    <id>com.wisetroll.QuickCascadesTest</id>
+    <name>QuickCascadesTest</name>
+    <versionNumber>1.0.0</versionNumber>
+    <description>DESCRIPTION</description>
     <initialWindow>
         <systemChrome>none</systemChrome>
         <transparent>false</transparent>
         <autoOrients>true</autoOrients>
         <aspectRatio>landscape</aspectRatio>
     </initialWindow>
+    <copyright>COPYRIGHT</copyright>
 
     <action system="true">run_native</action>
-    <category>core.media</category>
 
-    <env var="QT_QPA_FONTDIR" value="/usr/fonts/font_repository/dejavu-ttf-2.17"/>
+    <arg>-platform</arg>
+    <arg>qnx</arg>
 
-    <asset entry="true" path="cookbook" type="Qnx/Elf">Bb10GlTest</asset>
+    <env var="QML2_IMPORT_PATH" value="app/native/qml"/>
+    <env var="QT_PLUGIN_PATH" value="app/native/plugins"/>
+    <env var="LD_LIBRARY_PATH" value="app/native/lib"/>
+
+    <!-- Application and plugins -->
+    <asset path="%SRC_DIR%/test/test" type="Qnx/Elf" entry="true">test</asset>
+    <asset path="%SRC_DIR%/test/assets">assets</asset>
+
+    <!-- QuickCascases -->
+    <asset path="../qml/QuickCascades">qml/QuickCascades</asset>
+
+    <!-- Qt -->
+    <asset path="%QT_INSTALL_LIBS%/libQt5Core.so.5">lib/libQt5Core.so.5</asset>
+    <asset path="%QT_INSTALL_LIBS%/libQt5Gui.so.5">lib/libQt5Gui.so.5</asset>
+    <asset path="%QT_INSTALL_LIBS%/libQt5Network.so.5">lib/libQt5Network.so.5</asset>
+    <asset path="%QT_INSTALL_LIBS%/libQt5Qml.so.5">lib/libQt5Qml.so.5</asset>
+    <asset path="%QT_INSTALL_LIBS%/libQt5Quick.so.5">lib/libQt5Quick.so.5</asset>
+    <asset path="%QT_INSTALL_LIBS%/libQt5Sql.so.5">lib/libQt5Sql.so.5</asset>
+    <asset path="%QT_INSTALL_LIBS%/libQt5V8.so.5">lib/libQt5V8.so.5</asset>
+    <asset path="%QT_INSTALL_LIBS%/libQt5Xml.so.5">lib/libQt5Xml.so.5</asset>
+
+    <asset path="%QT_INSTALL_PLUGINS%">plugins</asset>
+    <!-- FIXME: This is a workaround for recent import path changes. To be removed in the future. -->
+    <!--asset path="%QT_INSTALL_IMPORTS%">qml</asset-->
+    <asset path="%QT_INSTALL_LIBS%/../qml">qml</asset>
 </qnx>
-

@@ -12,9 +12,12 @@ int main(int argc, char *argv[])
     QObject::connect(m_view->engine(), SIGNAL(quit()), &app, SLOT(quit()));
 
     m_view->engine()->addImportPath("../../qml");
-    //m_view->engine()->addPluginPath("../../build");
 
+#ifdef Q_OS_BLACKBERRY
+    m_view->setSource(QUrl::fromLocalFile("app/native/assets/main.qml"));
+#else
     m_view->setSource(QUrl::fromLocalFile("assets/main.qml"));
+#endif
     m_view->setResizeMode(QQuickView::SizeRootObjectToView);
 
 #ifdef Q_OS_BLACKBERRY
