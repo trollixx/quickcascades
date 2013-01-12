@@ -13,34 +13,27 @@ Item {
 
     Rectangle {
         anchors.fill: parent
-
         color: "black"
-        opacity: 0.5
+        opacity: 0.8
     }
 
     Column {
         anchors.centerIn: parent
 
-        Text {
+        Label {
             id: titleText
-
             anchors.horizontalCenter: parent.horizontalCenter
-
-            color: "white"
-            elide: Text.ElideRight
-            font.pointSize: 36
-            horizontalAlignment:  Text.AlignHCenter
+            font.pointSize: 11
         }
 
-        Text {
+        Label {
             id: subtitleText
-
             anchors.horizontalCenter: parent.horizontalCenter
-
-            color: "#b2b2b2"
-            elide: Text.ElideRight
-            font.pointSize: 24
-            horizontalAlignment:  Text.AlignHCenter
+            color: "gray"
+            font {
+                pointSize: 6
+                weight: Font.Light
+            }
         }
     }
 }
