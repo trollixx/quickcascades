@@ -99,19 +99,6 @@ AbstractPane {
         }
     }*/
 
-    /*ActionBar {
-        id: actionBar
-
-        customAction: ActionItem {
-            imageSource: "qrc:/quickcascades/icon_back"
-            //backgroundImageSource: "qrc:/img/back_action_bg"
-            title: qsTr("Back")
-            onTriggered: pop()
-        }
-
-        visible: __pageIndex > 0
-    }*/
-
     QtObject {
         id: internal
 
