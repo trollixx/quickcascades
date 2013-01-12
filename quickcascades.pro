@@ -21,20 +21,14 @@ OTHER_FILES += \
     qml/QuickCascades/AbstractPane.qml \
     qml/QuickCascades/Action.qml \
     qml/QuickCascades/ActionBar.qml \
-    qml/QuickCascades/Button.qml \
     qml/QuickCascades/Label.qml \
     qml/QuickCascades/NavigationPane.js \
     qml/QuickCascades/NavigationPane.qml \
     qml/QuickCascades/Page.qml \
-    qml/QuickCascades/TabbedPane.qml \
-    qml/QuickCascades/TextField.qml \
     qml/QuickCascades/Tab.qml \
-    qml/QuickCascades/TabbedPaneBar.qml \
-    qml/QuickCascades/TabbedPaneSideBar.qml \
+    qml/QuickCascades/TextField.qml \
     qml/QuickCascades/TitleBar.qml \
-    qml/QuickCascades/private/TabDelegate.qml \
-    qml/QuickCascades/private/ActionBarActionDelegate.qml \
-    qml/QuickCascades/private/SideBarDelegate.qml
+    qml/QuickCascades/private/ActionBarActionDelegate.qml
 
 
 qmldir.files = qml/QuickCascades/qmldir
