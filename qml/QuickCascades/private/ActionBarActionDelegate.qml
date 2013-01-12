@@ -19,7 +19,7 @@ Item {
         Image {
             anchors.horizontalCenter: parent.horizontalCenter
             height: 81; width: 81
-            source: action.imageSource || "../icons/gear.png"
+            source: action.icon || "../icons/gear.png"
         }
 
         Label {
