@@ -1,7 +1,7 @@
 import QtQuick 2.0
 
 Rectangle {
-    id: component
+    id: root
 
     property alias echoMode: textInput.echoMode
     property alias hintText: hintText.text
@@ -23,7 +23,7 @@ Rectangle {
             name: "focused"
             when: textInput.activeFocus
             PropertyChanges {
-                target: component
+                target: root
                 border.color: ThemeManager.textFieldBorderColorFocused
             }
         }
@@ -39,13 +39,13 @@ Rectangle {
         id: hintText
 
         anchors {
-            left: component.left; right: component.right
+            left: root.left; right: root.right
             leftMargin: 10; rightMargin: 10
-            verticalCenter: component.verticalCenter
+            verticalCenter: root.verticalCenter
         }
 
         clip: true
-        visible: component.state !== "focused" && textInput.text === ""
+        visible: root.state !== "focused" && textInput.text === ""
 
         color: "gray"
         font { italic: true; pointSize: 24 }
@@ -60,18 +60,12 @@ Rectangle {
         id: textInput
 
         anchors {
-            left: component.left; right: component.right
+            left: root.left; right: root.right
             leftMargin: 10; rightMargin: 10
-            verticalCenter: component.verticalCenter
+            verticalCenter: root.verticalCenter
         }
 
         clip: true
         font.pointSize: 24
-
-        onTextChanged: {
-            component.textChanged()
-            /// FIXME: Why is it needed?
-            forceActiveFocus()
-        }
     }
 }

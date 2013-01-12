@@ -3,7 +3,7 @@ import QtQuick 2.0
 import "private"
 
 AbstractPane {
-    id: tabbedPane
+    id: root
 
     property alias tabs: actionBar.tabs
     property AbstractPane activePane
@@ -14,7 +14,7 @@ AbstractPane {
         actionBar.visible = true
         actionBar.activeTabIndex = index
         // TODO: Implement hideSideBar()
-        tabbedPane.x = 0
+        root.x = 0
     }
 
     Component.onCompleted: {
@@ -79,10 +79,10 @@ AbstractPane {
         }
 
         onMenuTriggered: {
-            if (tabbedPane.x === 0) {
-                tabbedPane.x += sideBar.width
+            if (root.x === 0) {
+                root.x += sideBar.width
             } else {
-                tabbedPane.x = 0
+                root.x = 0
             }
         }
     }

@@ -1,7 +1,7 @@
 import QtQuick 2.0
 
 Rectangle {
-    id: component
+    id: root
 
     property alias imageSource: iconImage.source
     property alias title: titleText.text
@@ -52,7 +52,7 @@ Rectangle {
     MouseArea {
         height: 115; width: parent.width
 
-        onClicked: component.clicked()
-        onPressedChanged: component.pressed = pressed
+        onClicked: root.clicked()
+        onPressedChanged: root.pressed = pressed
     }
 }

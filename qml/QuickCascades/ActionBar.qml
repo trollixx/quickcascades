@@ -3,8 +3,6 @@ import QtQuick 2.0
 import "private"
 
 Item {
-    id: actionBar
-
     // Custom Action (menu for TabbedPane or back for NavigationPane)
     // property alias customAction: customActionDelegate.action
 

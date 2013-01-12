@@ -1,7 +1,7 @@
 import QtQuick 2.0
 
 Item {
-    id: button
+    id: root
 
     property alias text: buttonText.text
 
@@ -30,7 +30,7 @@ Item {
         id: mouseArea
         anchors.fill: parent
 
-        onClicked: button.clicked()
+        onClicked: root.clicked()
     }
 
     BorderImage {
@@ -63,6 +63,6 @@ Item {
         font.pointSize: 24
         smooth: true
 
-        text: button.text
+        text: root.text
     }
 }
