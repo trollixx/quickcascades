@@ -8,6 +8,7 @@ Item {
 
     Column {
         anchors.fill: parent
+        opacity: action.enabled ? 1 : 0.4
         spacing: 5
 
         Rectangle {
@@ -34,6 +35,7 @@ Item {
     MouseArea {
         id: mouseArea
         anchors.fill: parent
+        enabled: action.enabled
         onClicked: action.triggered()
     }
 }
