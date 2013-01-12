@@ -7,39 +7,20 @@ Item {
 
     height: 140; width: 150
 
-    Image {
-        id: backgroundImage
-        anchors.fill: parent
-        source: action.backgroundImageSource
-    }
-
     Column {
         anchors.centerIn: parent
         width: parent.width
 
         Image {
             id: iconImage
-
             anchors.horizontalCenter: parent.horizontalCenter
             height: 81; width: 81
-
             source: action.imageSource
         }
 
-        Text {
-            id: textText
-
+        Label {
             anchors.horizontalCenter: parent.horizontalCenter
-            width: parent.width - 20
-            visible: text !== ""
-
-            color: "white"
-            elide: Text.ElideRight
-            font.pointSize: 18
-            horizontalAlignment: Text.AlignHCenter
-            style: Text.Raised
-            styleColor: "black"
-
+            font.pointSize: 5
             text: action.title
         }
     }
