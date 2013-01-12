@@ -17,5 +17,4 @@ public:
     };
 };
 
-
 #endif // QUICKCASCADES_H
