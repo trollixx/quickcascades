@@ -7,12 +7,9 @@ Item {
     // property alias customAction: customActionDelegate.action
 
     property var actions
-    /// TODO: Move this to C++ enum as QML doesn't allow to declare enums
-    property string visibility
 
     anchors.bottom: parent.bottom
-    implicitHeight: 150; implicitWidth: parent.width
-    //visible: visibility !== "Hidden"
+    implicitHeight: 140; implicitWidth: parent.width
 
     Rectangle {
         anchors.fill: parent
@@ -29,15 +26,17 @@ Item {
         }*/
 
         Row {
-            anchors.right: parent.right
+            id: actionWrapper
+            anchors.fill: parent
 
             Repeater {
                 model: actions
-                ActionBarActionDelegate {
-                    action: Action {
-                        imageSource: modelData.imageSource
-                        title: modelData.title
-                        onTriggered: modelData.triggered()
+                Item {
+                    height: actionWrapper.height
+                    width: actionWrapper.width / Math.min(4, actions.length)
+                    ActionBarActionDelegate {
+                        action: modelData
+                        anchors.centerIn: parent
                     }
                 }
             }
