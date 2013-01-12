@@ -17,6 +17,10 @@ Item {
         color: ThemeManager.actionBarBackgroundColor
     }
 
+    MouseArea {
+        anchors.fill: parent
+    }
+
     Item {
         anchors.bottom: parent.bottom
         height: 140; width: parent.width
