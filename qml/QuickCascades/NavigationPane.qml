@@ -48,6 +48,7 @@ AbstractPane {
     property Page currentPage: null
     property int depth: Engine.getDepth()
     property Page initialPage: null
+
     // TODO: Support preinitialized pageStack
     //property list<Page> pages
     //property alias actions: actionBar.actions
@@ -110,31 +111,6 @@ AbstractPane {
         if (initialPage && depth == 0)
             push(initialPage, null, true)
     }
-
-    /*Component.onCompleted: {
-        actionBar.actions = pages[0].actions
-    }*/
-
-    /*Rectangle {
-        id: wrapper
-
-        height: parent.height; width: parent.width
-
-        Repeater {
-            model: pages
-
-            Page {
-                data: modelData
-                height: wrapper.height; width: wrapper.width
-                x: index === 0 ? 0 : root.width
-
-                Behavior on x {
-                    enabled: parent.x !== (index === 0 ? 0 : root.width)
-                    NumberAnimation { duration: 500; easing.type: Easing.InOutQuad }
-                }
-            }
-        }
-    }*/
 
     QtObject {
         id: internal
