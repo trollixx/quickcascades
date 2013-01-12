@@ -19,7 +19,10 @@ Item {
 
         Label {
             anchors.horizontalCenter: parent.horizontalCenter
-            font.pointSize: 5
+            font {
+                pointSize: 5
+                weight: Font.DemiBold
+            }
             text: action.title
         }
     }
