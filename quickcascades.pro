@@ -16,9 +16,6 @@ HEADERS += \
     src/quickcascades.h \
     src/thememanager.h
 
-RESOURCES += \
-    qml/qml.qrc
-
 OTHER_FILES += \
     qml/QuickCascades/qmldir \
     qml/QuickCascades/AbstractPane.qml \
