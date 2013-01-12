@@ -9,7 +9,6 @@ AbstractPane {
     default property alias data: childrenWrapper.data
 
     property list<Action> actions
-    property AbstractPane container
     property TitleBar titleBar: null
 
     height: parent.height; width: parent.width
@@ -60,6 +59,5 @@ AbstractPane {
     ActionBar {
         id: actionBar
         actions: root.actions
-        visible: actions.length > 0
     }
 }
