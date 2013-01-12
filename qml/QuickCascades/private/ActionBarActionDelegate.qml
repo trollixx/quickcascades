@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QuickCascades 1.0
 
 Item {
-    property ActionItem action
+    property Action action
 
     height: 140; width: 150
 

@@ -3,7 +3,7 @@
         <!--file>QuickCascades/qmldir</file>
         <file>QuickCascades/AbstractPane.qml</file>
         <file>QuickCascades/ActionBar.qml</file>
-        <file>QuickCascades/ActionItem.qml</file>
+        <file>QuickCascades/Action.qml</file>
         <file>QuickCascades/Button.qml</file>
         <file>QuickCascades/Label.qml</file>
         <file>QuickCascades/NavigationPane.js</file>

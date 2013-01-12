@@ -22,8 +22,8 @@ RESOURCES += \
 OTHER_FILES += \
     qml/QuickCascades/qmldir \
     qml/QuickCascades/AbstractPane.qml \
+    qml/QuickCascades/Action.qml \
     qml/QuickCascades/ActionBar.qml \
-    qml/QuickCascades/ActionItem.qml \
     qml/QuickCascades/Button.qml \
     qml/QuickCascades/Label.qml \
     qml/QuickCascades/NavigationPane.js \

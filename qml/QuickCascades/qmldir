@@ -2,7 +2,7 @@ module QuickCascades
 plugin QuickCascades
 AbstractPane 1.0 AbstractPane.qml
 ActionBar 1.0 ActionBar.qml
-ActionItem 1.0 ActionItem.qml
+Action 1.0 Action.qml
 Button 1.0 Button.qml
 Label 1.0 Label.qml
 NavigationPane 1.0 NavigationPane.qml

@@ -34,7 +34,7 @@ Item {
             Repeater {
                 model: actions
                 ActionBarActionDelegate {
-                    action: ActionItem {
+                    action: Action {
                         imageSource: modelData.imageSource
                         title: modelData.title
                         onTriggered: modelData.triggered()

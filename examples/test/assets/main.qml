@@ -13,13 +13,13 @@ NavigationPane {
         }
 
         actions: [
-            ActionItem {
+            Action {
                 title: "Test 1"
             },
-            ActionItem {
+            Action {
                 title: "Test 2"
             },
-            ActionItem {
+            Action {
                 title: "Test 3"
             }
         ]

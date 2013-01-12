@@ -29,7 +29,7 @@ ActionBar {
         }
     }
 
-    customAction: ActionItem {
+    customAction: Action {
         imageSource: "qrc:/img/icon_action_menu.png"
         onTriggered: menuTriggered()
     }

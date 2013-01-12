@@ -8,7 +8,7 @@ AbstractPane {
 
     default property alias data: childrenWrapper.data
 
-    property list<ActionItem> actions
+    property list<Action> actions
     property AbstractPane container
     property TitleBar titleBar: null
 
