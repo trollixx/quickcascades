@@ -28,7 +28,7 @@ Item {
                 pointSize: 5
                 weight: Font.DemiBold
             }
-            text: action.title
+            text: action.text
         }
     }
 
