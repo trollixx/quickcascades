@@ -16,7 +16,6 @@ Item {
         }
 
         Image {
-            id: iconImage
             anchors.horizontalCenter: parent.horizontalCenter
             height: 81; width: 81
             source: action.imageSource || "../icons/gear.png"
