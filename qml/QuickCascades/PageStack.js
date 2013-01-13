@@ -187,11 +187,6 @@ function pop(page, immediate) {
         oldContainer.popExit(immediate);
         container.popEnter(immediate);
 
-        // sync tool bar
-        /*var tools = container.page.tools || null;
-        if (toolBar) {
-            toolBar.setTools(tools, immediate ? "set" : "pop");
-        }*/
         return oldContainer.page;
     } else {
         return null;
