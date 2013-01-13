@@ -50,10 +50,6 @@ AbstractPane {
 
     // TODO: Support preinitialized pageStack
     //property list<Page> pages
-    //property alias actions: actionBar.actions
-
-    signal popped(int index)
-    signal pushed(int index)
 
     // Indicates whether there is an ongoing page transition.
     property bool busy: internal.ongoingTransitionCount > 0
