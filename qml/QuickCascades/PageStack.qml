@@ -44,9 +44,9 @@ import "PageStack.js" as Engine
 AbstractPane {
     id: root
 
-    property Page currentPage: null
+    property AbstractPane currentPage
     property int depth: Engine.getDepth()
-    property Page initialPage: null
+    property AbstractPane initialPage
 
     // TODO: Support preinitialized pageStack
     //property list<Page> pages
@@ -103,6 +103,15 @@ AbstractPane {
                 replace(initialPage, null, true)
             else
                 console.log("Cannot update PageStack.initialPage")
+        }
+    }
+
+    // Called when the page stack visibility changes.
+    onVisibleChanged: {
+        if (currentPage) {
+            internal.setPageStatus(currentPage, visible ? PageStatus.Active : PageStatus.Inactive);
+            if (visible)
+                currentPage.visible = currentPage.parent.visible = true;
         }
     }
 
