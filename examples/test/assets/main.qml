@@ -15,16 +15,16 @@ PageStack {
         actions: [
             Action {
                 text: "Test 1"
-                onTriggered: console.log(title + " pressed")
+                onTriggered: console.log(text + " pressed")
             },
             Action {
                 enabled: false
                 text: "Test 2"
-                onTriggered: console.log(title + " pressed")
+                onTriggered: console.log(text + " pressed")
             },
             Action {
                 text: "Test 3"
-                onTriggered: console.log(title + " pressed")
+                onTriggered: console.log(text + " pressed")
             }
         ]
 
