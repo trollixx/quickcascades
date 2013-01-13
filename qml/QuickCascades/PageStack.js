@@ -153,8 +153,8 @@ function initPage(page, properties) {
         page.parent = container;
     }
 
-    if (page.container !== undefined) {
-        page.container = root;
+    if (page.pageStack !== undefined) {
+        page.pageStack = root;
     }
 
     return container;
