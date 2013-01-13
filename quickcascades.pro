@@ -28,8 +28,9 @@ OTHER_FILES += \
     qml/QuickCascades/Tab.qml \
     qml/QuickCascades/TextField.qml \
     qml/QuickCascades/TitleBar.qml \
-    qml/QuickCascades/private/ActionBarActionDelegate.qml
-
+    qml/QuickCascades/private/ActionBarActionDelegate.qml \
+    qml/QuickCascades/private/BackActionDelegate.qml \
+    qml/QuickCascades/private/BottomBar.qml
 
 qmldir.files = qml/QuickCascades/qmldir
 

@@ -9,6 +9,9 @@ AbstractPane {
     default property alias data: childrenWrapper.data
 
     property list<Action> actions
+    property alias backAction: backActionDelegate.action
+    property PageStack pageStack
+    property int status: PageStatus.Inactive
     property TitleBar titleBar: null
 
     height: parent.height; width: parent.width
@@ -44,20 +47,36 @@ AbstractPane {
                     Component.onCompleted: if (childrenRect.height > implicitHeight) height = childrenRect.height
 
                     implicitHeight: root.height - (titleBar ? titleBar.height : 0)
-                                    - (actionBar.visible ? actionBar.height : 0)
+                                    - (bottomBar.visible ? bottomBar.height : 0)
                     implicitWidth: root.width
                 }
 
                 Item {
-                    height: actionBar.height; width: root.width
-                    visible: actionBar.visible
+                    height: bottomBar.height; width: root.width
+                    visible: bottomBar.visible
                 }
             }
         }
     }
 
-    ActionBar {
-        id: actionBar
-        actions: root.actions
+    BottomBar {
+        id: bottomBar
+
+        BackActionDelegate {
+            id: backActionDelegate
+            action: Action {
+                icon: "../icons/back.png"
+                text: qsTr("Back")
+                onTriggered: root.pageStack.pop()
+            }
+        }
+
+        ActionBar {
+            actions: root.actions
+            anchors {
+                left: backActionDelegate.visible ? backActionDelegate.right : parent.left
+                right: parent.right
+            }
+        }
     }
 }
