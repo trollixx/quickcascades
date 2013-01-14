@@ -6,7 +6,10 @@ Item {
 
     Rectangle {
         anchors.fill: parent
-        color: ThemeManager.actionBarBackgroundColor
+        gradient: Gradient {
+            GradientStop { position: 0; color: "#323232" }
+            GradientStop { position: 1; color: "#252525" }
+        }
         /// TODO: opacity
     }
 
