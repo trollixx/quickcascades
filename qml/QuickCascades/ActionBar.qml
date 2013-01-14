@@ -13,7 +13,9 @@ Row {
         model: actions
         Item {
             height: root.height
-            width: root.width / Math.min(4, actions.length)
+            /// FIXME: This check is intented to prevent errors in log, because component
+            /// is removed before its bindings somewhy
+            width: root ? root.width / Math.min(4, actions.length) : 0
             ActionBarActionDelegate {
                 action: modelData
                 anchors.centerIn: parent
