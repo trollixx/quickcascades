@@ -5,7 +5,6 @@ Item {
     property alias subtitle: subtitleText.text
 
     implicitHeight: 120; implicitWidth: parent.width
-    z: 1
 
     MouseArea {
         anchors.fill: parent
