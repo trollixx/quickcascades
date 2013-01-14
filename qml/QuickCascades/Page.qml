@@ -65,7 +65,6 @@ AbstractPane {
 
     TitleBar {
         data: titleBar
-        visible: titleBar !== null
     }
 
     BottomBar {
