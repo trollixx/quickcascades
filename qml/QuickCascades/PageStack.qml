@@ -36,7 +36,6 @@
 ****************************************************************************/
 
 import QtQuick 2.0
-import QtQuick.Window 2.0
 import QuickCascades 1.0
 
 import "PageStack.js" as Engine
@@ -44,9 +43,9 @@ import "PageStack.js" as Engine
 AbstractPane {
     id: root
 
+    property AbstractPane initialPage
     property AbstractPane currentPage
     property int depth: Engine.getDepth()
-    property AbstractPane initialPage
 
     // TODO: Support preinitialized pageStack
     //property list<Page> pages
@@ -151,13 +150,13 @@ AbstractPane {
             state: "Hidden"
 
             // The page held by this container.
-            property Item page: null
+            property AbstractPane page: null
 
             // The owner of the page.
             property Item owner: null
 
             // The width of the longer screen dimension
-            property int screenWidth: Math.max(Screen.width, Screen.height)
+            property int screenWidth: Math.max(parent.width, parent.height)
 
             // Duration of transition animation (in ms)
             property int transitionDuration: 300
