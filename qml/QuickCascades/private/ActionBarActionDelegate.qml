@@ -6,15 +6,30 @@ Item {
 
     implicitHeight: 140; implicitWidth: 101
 
+    Rectangle {
+        id: highlight
+        color: "#00aae7"
+        height: 8; width: parent.width
+        opacity: 0
+
+        states: State {
+            name: "pressed"
+            when: mouseArea.pressed && mouseArea.containsMouse
+            PropertyChanges {
+                target: highlight; opacity: 1
+            }
+        }
+
+        transitions: Transition {
+            from: "pressed"
+            PropertyAnimation { property: "opacity"; duration: 100 }
+        }
+    }
+
     Column {
-        anchors.fill: parent
+        anchors.centerIn: parent
         opacity: action.enabled ? 1 : 0.4
         spacing: 5
-
-        Rectangle {
-            color: mouseArea.pressed ? "#00aae7" : "transparent"
-            height: 8; width: parent.width
-        }
 
         Image {
             anchors.horizontalCenter: parent.horizontalCenter

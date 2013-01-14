@@ -9,12 +9,27 @@ Image {
     visible: action.visible
 
     Rectangle {
+        id: highlight
         anchors {
             left: parent.left
             verticalCenter: parent.verticalCenter
         }
-        color: mouseArea.pressed ? "#00aae7" : "transparent"
+        color: "#00aae7"
         height: 101; width: 8
+        opacity: 0
+
+        states: State {
+            name: "pressed"
+            when: mouseArea.pressed && mouseArea.containsMouse
+            PropertyChanges {
+                target: highlight; opacity: 1
+            }
+        }
+
+        transitions: Transition {
+            from: "pressed"
+            PropertyAnimation { property: "opacity"; duration: 100 }
+        }
     }
 
     Column {
