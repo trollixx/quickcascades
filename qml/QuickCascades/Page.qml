@@ -14,12 +14,13 @@ AbstractPane {
     property int status: PageStatus.Inactive
     property TitleBar titleBar: null
 
-    height: parent.height; width: parent.width
+    visible: false
 
-    TitleBar {
-        data: titleBar
-        visible: titleBar !== null
-    }
+    width: visible && parent ? parent.width : internal.previousWidth
+    height: visible && parent ? parent.height : internal.previousHeight
+
+    onWidthChanged: internal.previousWidth = visible ? width : internal.previousWidth
+    onHeightChanged: internal.previousHeight = visible ? height : internal.previousHeight
 
     Rectangle {
         anchors.fill: parent
@@ -33,30 +34,38 @@ AbstractPane {
             flickableDirection: Flickable.VerticalFlick
             interactive: contentHeight > height
 
+            Binding {
+                target: childrenWrapper
+                property: "height"
+                value: childrenWrapper.childrenRect.height
+                when: root.height
+            }
+
             Column {
                 id: column
 
                 Item {
                     height: titleBar ? titleBar.height : 0; width: root.width
-                    visible: titleBar && titleBar.visible
                 }
 
                 Item {
                     id: childrenWrapper
-
-                    Component.onCompleted: if (childrenRect.height > implicitHeight) height = childrenRect.height
-
-                    implicitHeight: root.height - (titleBar ? titleBar.height : 0)
-                                    - (bottomBar.visible ? bottomBar.height : 0)
+                    implicitHeight: root.height ? root.height
+                                                  - (titleBar ? titleBar.height : 0)
+                                                  - (bottomBar.visible ? bottomBar.height : 0) : 0
                     implicitWidth: root.width
                 }
 
                 Item {
                     height: bottomBar.height; width: root.width
-                    visible: bottomBar.visible
                 }
             }
         }
+    }
+
+    TitleBar {
+        data: titleBar
+        visible: titleBar !== null
     }
 
     BottomBar {
@@ -78,5 +87,11 @@ AbstractPane {
                 right: parent.right
             }
         }
+    }
+
+    QtObject {
+        id: internal
+        property int previousWidth: 0
+        property int previousHeight: 0
     }
 }
