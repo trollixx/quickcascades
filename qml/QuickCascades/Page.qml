@@ -12,7 +12,7 @@ AbstractPane {
     property alias backAction: backActionDelegate.action
     property PageStack pageStack
     property int status: PageStatus.Inactive
-    property TitleBar titleBar: null
+    property TitleBar titleBar
 
     visible: false
 

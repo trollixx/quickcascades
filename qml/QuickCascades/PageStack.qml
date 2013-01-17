@@ -150,10 +150,10 @@ AbstractPane {
             state: "Hidden"
 
             // The page held by this container.
-            property AbstractPane page: null
+            property AbstractPane page
 
             // The owner of the page.
-            property Item owner: null
+            property Item owner
 
             // The width of the longer screen dimension
             property int screenWidth: Math.max(parent.width, parent.height)
