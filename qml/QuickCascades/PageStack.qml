@@ -159,7 +159,7 @@ AbstractPane {
             property int screenWidth: Math.max(parent.width, parent.height)
 
             // Duration of transition animation (in ms)
-            property int transitionDuration: 300
+            property int transitionDuration: 200
 
             // Flag that indicates the container should be cleaned up after the transition has ended.
             property bool cleanupAfterTransition: false
