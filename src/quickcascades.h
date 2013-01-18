@@ -17,4 +17,17 @@ public:
     };
 };
 
+class QCSidebarState : public QObject
+{
+    Q_OBJECT
+    Q_ENUMS(State)
+
+public:
+    enum State {
+        Hidden,
+        VisibleCompact,
+        VisibleFull
+    };
+};
+
 #endif // QUICKCASCADES_H

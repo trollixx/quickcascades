@@ -11,6 +11,7 @@ void QuickCascadesPlugin::registerTypes(const char *uri)
 {
     // @uri QuickCascades
     qmlRegisterUncreatableType<QCPageStatus>(uri, 1, 0, "PageStatus", "");
+    qmlRegisterUncreatableType<QCSidebarState>(uri, 1, 0, "SidebarState", "");
 }
 
 void QuickCascadesPlugin::initializeEngine(QQmlEngine *engine, const char *uri)
