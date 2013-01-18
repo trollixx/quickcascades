@@ -26,11 +26,13 @@ OTHER_FILES += \
     qml/QuickCascades/PageStack.qml \
     qml/QuickCascades/PageStack.js \
     qml/QuickCascades/Tab.qml \
+    qml/QuickCascades/TabbedPane.qml \
     qml/QuickCascades/TextField.qml \
     qml/QuickCascades/TitleBar.qml \
     qml/QuickCascades/private/ActionBarActionDelegate.qml \
     qml/QuickCascades/private/BackActionDelegate.qml \
-    qml/QuickCascades/private/BottomBar.qml
+    qml/QuickCascades/private/BottomBar.qml \
+    qml/QuickCascades/private/TabMenuDelegate.qml
 
 qmldir.files = qml/QuickCascades/qmldir
 

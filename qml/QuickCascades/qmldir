@@ -7,5 +7,6 @@ Label 1.0 Label.qml
 Page 1.0 Page.qml
 PageStack 1.0 PageStack.qml
 Tab 1.0 Tab.qml
+TabbedPane 1.0 TabbedPane.qml
 TextField 1.0 TextField.qml
 TitleBar 1.0 TitleBar.qml
