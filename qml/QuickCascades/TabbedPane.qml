@@ -95,7 +95,7 @@ AbstractPane {
         width: parent.width
 
         Behavior on x {
-            NumberAnimation { id: animation; duration: 200; easing.type: Easing.OutCubic }
+            NumberAnimation { id: animation; duration: 200; easing.type: Easing.OutQuad }
         }
     }
 
