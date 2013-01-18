@@ -1,9 +1,6 @@
 import QtQuick 2.0
 import QuickCascades 1.0
 
-/// TODO: Highlight fade out
-/// TODO: Disabled state
-
 Item {
     property bool selected
     property Tab tab
