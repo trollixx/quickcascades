@@ -72,10 +72,10 @@ AbstractPane {
 
         BackActionDelegate {
             id: backActionDelegate
-            visible: root.pageStack
             action: Action {
                 icon: "../icons/back.png"
                 text: qsTr("Back")
+                visible: root.pageStack
                 onTriggered: root.pageStack.pop()
             }
         }
