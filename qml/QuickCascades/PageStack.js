@@ -104,12 +104,6 @@ function push(page, properties, replace, immediate) {
         oldContainer.pushExit(replace, immediate);
     }
 
-    // sync tool bar
-    var tools = container.page.tools || null;
-    /*if (toolBar) {
-        toolBar.setTools(tools, immediate ? "set" : replace ? "replace" : "push");
-    }*/
-
     container.pushEnter(immediate, orientationChange);
     return container.page;
 }
