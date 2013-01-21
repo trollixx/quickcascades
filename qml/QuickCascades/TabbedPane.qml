@@ -15,6 +15,9 @@ AbstractPane {
         for (var i = 0; i < tabs.length; ++i) {
             if (tabs[i].content)
                 tabs[i].content.parent = viewport
+
+            if (i > 0)
+                tabs[i].content.visible = false
         }
     }
 
