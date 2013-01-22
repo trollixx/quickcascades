@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 #ifdef Q_OS_BLACKBERRY
     m_view->showFullScreen();
 #else
-    m_view->resize(720, 1280);
+    m_view->resize(720, 900);
     m_view->show();
 #endif
 
