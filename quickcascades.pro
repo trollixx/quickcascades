@@ -9,17 +9,20 @@ uri = QuickCascades
 
 SOURCES += \
     src/quickcascades_plugin.cpp \
-    src/style.cpp
+    src/style.cpp \
+    src/windowmanager.cpp
 
 HEADERS += \
     src/quickcascades_plugin.h \
     src/quickcascades.h \
-    src/style.h
+    src/style.h \
+    src/windowmanager.h
 
 OTHER_FILES += \
     qml/QuickCascades/qmldir \
     qml/QuickCascades/AbstractPane.qml \
     qml/QuickCascades/Action.qml \
+    qml/QuickCascades/ApplicationWindow.qml \
     qml/QuickCascades/Label.qml \
     qml/QuickCascades/Page.qml \
     qml/QuickCascades/PageStack.qml \

@@ -11,6 +11,13 @@ AbstractPane {
     property list<Tab> tabs
     property int sidebarState: SidebarState.Hidden
 
+    Component.onCompleted: {
+        if (!WindowManager.tabbedPane)
+            WindowManager.tabbedPane = root
+        else
+            throw new Error("Only one TabbedPane in time is supported.")
+    }
+
     onTabsChanged: {
         for (var i = 0; i < tabs.length; ++i) {
             if (tabs[i].content)
