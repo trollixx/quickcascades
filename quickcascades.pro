@@ -20,7 +20,6 @@ OTHER_FILES += \
     qml/QuickCascades/qmldir \
     qml/QuickCascades/AbstractPane.qml \
     qml/QuickCascades/Action.qml \
-    qml/QuickCascades/ActionBar.qml \
     qml/QuickCascades/Label.qml \
     qml/QuickCascades/Page.qml \
     qml/QuickCascades/PageStack.qml \
@@ -29,6 +28,7 @@ OTHER_FILES += \
     qml/QuickCascades/TabbedPane.qml \
     qml/QuickCascades/TextField.qml \
     qml/QuickCascades/TitleBar.qml \
+    qml/QuickCascades/private/ActionBar.qml \
     qml/QuickCascades/private/ActionBarActionDelegate.qml \
     qml/QuickCascades/private/BackActionDelegate.qml \
     qml/QuickCascades/private/BottomBar.qml \

@@ -1,6 +1,5 @@
 import QtQuick 2.0
-
-import "private"
+import QuickCascades 1.0
 
 Row {
     id: root
