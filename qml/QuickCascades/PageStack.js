@@ -66,13 +66,9 @@ function push(page, properties, replace, immediate) {
         }
     }
 
-    // get the current container
-    var oldContainer = pageStack[pageStack.length - 1];
-
     // pop the old container off the stack if this is a replace
-    if (oldContainer && replace) {
+    if (replace)
         pageStack.pop();
-    }
 
     // push any extra defined pages onto the stack
     if (pages) {
@@ -94,17 +90,11 @@ function push(page, properties, replace, immediate) {
     // push the page container onto the stack
     pageStack.push(container);
 
-    depth = pageStack.length;
     currentPage = container.page;
 
     // perform page transition
-    immediate = immediate || !oldContainer;
-    var orientationChange = false;
-    if (oldContainer) {
-        oldContainer.pushExit(replace, immediate);
-    }
+    container.pushEnter(immediate);
 
-    container.pushEnter(immediate, orientationChange);
     return container.page;
 }
 
@@ -151,9 +141,8 @@ function initPage(page, properties) {
         page.pageStack = root;
     }
 
-    if (depth === 0) {
+    if (depth === 0)
         page.backAction.visible = false
-    }
 
     return container;
 }
@@ -161,30 +150,27 @@ function initPage(page, properties) {
 // Pops a page off the stack.
 function pop(page, immediate) {
     // make sure there are enough pages in the stack to pop
-    if (pageStack.length > 1) {
-        // pop the current container off the stack and get the next container
-        var oldContainer = pageStack.pop();
-        var container = pageStack[pageStack.length - 1];
-        if (page !== undefined) {
-            // an unwind target has been specified - pop until we find it
-            while (page !== container.page && pageStack.length > 1) {
-                container.cleanup();
-                pageStack.pop();
-                container = pageStack[pageStack.length - 1];
-            }
+    if (pageStack.length == 0)
+        return null
+
+    // pop the current container off the stack and get the next container
+    var oldContainer = pageStack.pop();
+    var container = pageStack[pageStack.length - 1];
+    if (page !== undefined) {
+        // an unwind target has been specified - pop until we find it
+        while (page !== container.page && pageStack.length > 1) {
+            container.cleanup();
+            pageStack.pop();
+            container = pageStack[pageStack.length - 1];
         }
-
-        depth = pageStack.length;
-        currentPage = container.page;
-
-        // perform page transition
-        oldContainer.popExit(immediate);
-        container.popEnter(immediate);
-
-        return oldContainer.page;
-    } else {
-        return null;
     }
+
+    currentPage = container.page;
+
+    // perform page transition
+    oldContainer.popExit(immediate);
+
+    return oldContainer.page;
 }
 
 // Clears the page stack.
@@ -193,7 +179,6 @@ function clear() {
     while (container = pageStack.pop()) {
         container.cleanup();
     }
-    depth = 0;
     currentPage = null;
 }
 

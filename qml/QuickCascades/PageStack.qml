@@ -47,9 +47,6 @@ AbstractPane {
     property AbstractPane currentPage
     property int depth: Engine.getDepth()
 
-    // TODO: Support preinitialized pageStack
-    //property list<Page> pages
-
     // Indicates whether there is an ongoing page transition.
     property bool busy: internal.ongoingTransitionCount > 0
 
@@ -205,35 +202,13 @@ AbstractPane {
                     internal.setPageStatus(page, PageStatus.Active);
             }
 
-            // Performs a push exit transition.
-            function pushExit(replace, immediate) {
-                setState(immediate ? "Hidden" : "Left");
-                if (root.visible && immediate)
-                    internal.setPageStatus(page, PageStatus.Inactive);
-                if (replace) {
-                    if (immediate)
-                        cleanup();
-                    else
-                        cleanupAfterTransition = true;
-                }
-            }
-
-            // Performs a pop enter transition.
-            function popEnter(immediate) {
-                if (!immediate)
-                    state = "Left";
-                setState("");
-                page.visible = true;
-                if (root.visible && immediate)
-                    internal.setPageStatus(page, PageStatus.Active);
-            }
-
             // Performs a pop exit transition.
             function popExit(immediate) {
                 setState(immediate ? "Hidden" : "Right");
 
                 if (root.visible && immediate)
                     internal.setPageStatus(page, PageStatus.Inactive);
+
                 if (immediate)
                     cleanup();
                 else
@@ -272,22 +247,10 @@ AbstractPane {
                     name: "Left"
                     PropertyChanges { target: container; x: -width; }
                 },
-                // Start state for pop entry, end state for push exit
-                // when exiting portrait and entering landscape.
-                State {
-                    name: "LandscapeLeft"
-                    PropertyChanges { target: container; x: -screenWidth; }
-                },
                 // Start state for push entry, end state for pop exit.
                 State {
                     name: "Right"
                     PropertyChanges { target: container; x: width; }
-                },
-                // Start state for push entry, end state for pop exit
-                // when exiting portrait and entering landscape.
-                State {
-                    name: "LandscapeRight"
-                    PropertyChanges { target: container; x: screenWidth; }
                 },
                 // Inactive state.
                 State {
@@ -315,24 +278,6 @@ AbstractPane {
                         ScriptAction { script: transitionEnded() }
                     }
                 },
-                // Push exit transition landscape
-                Transition {
-                    from: ""; to: "LandscapeLeft"
-                    SequentialAnimation {
-                        ScriptAction { script: transitionStarted() }
-                        PropertyAnimation { property: "x"; easing.type: Easing.OutQuad; duration: transitionDuration }
-                        ScriptAction { script: transitionEnded() }
-                    }
-                },
-                // Pop entry transition landscape
-                Transition {
-                    from: "LandscapeLeft"; to: ""
-                    SequentialAnimation {
-                        ScriptAction { script: transitionStarted() }
-                        PropertyAnimation { property: "x"; easing.type: Easing.OutQuad; duration: transitionDuration }
-                        ScriptAction { script: transitionEnded() }
-                    }
-                },
                 // Pop exit transition
                 Transition {
                     from: ""; to: "Right"
@@ -345,24 +290,6 @@ AbstractPane {
                 // Push entry transition
                 Transition {
                     from: "Right"; to: ""
-                    SequentialAnimation {
-                        ScriptAction { script: transitionStarted() }
-                        PropertyAnimation { property: "x"; easing.type: Easing.OutQuad; duration: transitionDuration }
-                        ScriptAction { script: transitionEnded() }
-                    }
-                },
-                // Pop exit transition landscape
-                Transition {
-                    from: ""; to: "LandscapeRight"
-                    SequentialAnimation {
-                        ScriptAction { script: transitionStarted() }
-                        PropertyAnimation { property: "x"; easing.type: Easing.OutQuad; duration: transitionDuration }
-                        ScriptAction { script: transitionEnded() }
-                    }
-                },
-                // Push entry transition landscape
-                Transition {
-                    from: "LandscapeRight"; to: ""
                     SequentialAnimation {
                         ScriptAction { script: transitionStarted() }
                         PropertyAnimation { property: "x"; easing.type: Easing.OutQuad; duration: transitionDuration }
