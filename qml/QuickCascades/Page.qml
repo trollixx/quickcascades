@@ -9,7 +9,11 @@ AbstractPane {
     default property alias data: childrenWrapper.data
 
     property list<Action> actions
-    property alias backAction: backActionDelegate.action
+    property Action backAction: Action {
+        icon: "../icons/back.png"
+        text: qsTr("Back")
+        onTriggered: root.pageStack.pop()
+    }
     property PageStack pageStack
     property int status: PageStatus.Inactive
     property TitleBar titleBar
@@ -76,20 +80,26 @@ AbstractPane {
     BottomBar {
         id: bottomBar
 
-        BackActionDelegate {
-            id: backActionDelegate
-            action: Action {
-                icon: "../icons/back.png"
-                text: qsTr("Back")
-                visible: root.pageStack
-                onTriggered: root.pageStack.pop()
+        Loader {
+            id: backActionLoader
+            sourceComponent: root.pageStack && backAction.visible ? backAction : undefined
+        }
+
+        Component {
+            id: backAction
+            BackActionDelegate {
+                action: root.backAction
             }
+        }
+
+        TabBar {
+            tabs: if (WindowManager.tabbedPane) WindowManager.tabbedPane.tabs
         }
 
         ActionBar {
             actions: root.actions
             anchors {
-                left: backActionDelegate.visible ? backActionDelegate.right : parent.left
+                left: backActionLoader.visible ? backActionLoader.right : parent.left
                 right: parent.right
             }
         }
