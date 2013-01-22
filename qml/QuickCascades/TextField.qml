@@ -12,10 +12,10 @@ Rectangle {
     height: 83; width: 606
 
     border {
-        color: ThemeManager.textFieldBorderColor
+        color: Style.textFieldBorderColor
         width: 3
     }
-    color: ThemeManager.textFieldBackgroundColor
+    color: Style.textFieldBackgroundColor
     radius: 5
 
     states: [
@@ -24,7 +24,7 @@ Rectangle {
             when: textInput.activeFocus
             PropertyChanges {
                 target: root
-                border.color: ThemeManager.textFieldBorderColorFocused
+                border.color: Style.textFieldBorderColorFocused
             }
         }
     ]

@@ -6,10 +6,9 @@
 
 /// FIXME: This temprorary stupid hardcoded ThemeManager to be replaced with new one easily customizable through ini-file
 
-class ThemeManager : public QObject
+class Style : public QObject
 {
     Q_OBJECT
-    Q_DISABLE_COPY(ThemeManager)
 
     // Default styles
     Q_PROPERTY(QColor backgroundColor READ backgroundColor CONSTANT)
@@ -22,8 +21,8 @@ class ThemeManager : public QObject
     Q_PROPERTY(QColor textFieldBorderColor READ textFieldBorderColor CONSTANT)
     Q_PROPERTY(QColor textFieldBorderColorFocused READ textFieldBorderColorFocused CONSTANT)
 public:
-    ThemeManager(QObject *parent = 0);
-    ~ThemeManager() {}
+    Style(QObject *parent = 0);
+    virtual ~Style() {}
 
     QColor backgroundColor() const { return QColor("#262626"); }
 

@@ -9,12 +9,12 @@ uri = QuickCascades
 
 SOURCES += \
     src/quickcascades_plugin.cpp \
-    src/thememanager.cpp
+    src/style.cpp
 
 HEADERS += \
     src/quickcascades_plugin.h \
     src/quickcascades.h \
-    src/thememanager.h
+    src/style.h
 
 OTHER_FILES += \
     qml/QuickCascades/qmldir \

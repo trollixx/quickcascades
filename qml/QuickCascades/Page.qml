@@ -24,7 +24,7 @@ AbstractPane {
 
     Rectangle {
         anchors.fill: parent
-        color: ThemeManager.backgroundColor
+        color: Style.backgroundColor
 
         Flickable {
             id: flickable
