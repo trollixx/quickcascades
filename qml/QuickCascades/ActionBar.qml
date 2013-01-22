@@ -5,7 +5,7 @@ import "private"
 Row {
     id: root
 
-    property var actions: []
+    property list<Action> actions
 
     height: 140
 
