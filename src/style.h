@@ -9,7 +9,9 @@ class Style : public QObject
 {
     Q_OBJECT
 
-    // Default styles
+    // Default
+
+    // Page
     Q_PROPERTY(QColor pageBackgroundColor READ pageBackgroundColor CONSTANT)
     Q_PROPERTY(QUrl pageBackgroundImage READ pageBackgroundImage CONSTANT)
 
