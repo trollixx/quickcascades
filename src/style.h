@@ -3,15 +3,15 @@
 
 #include <QColor>
 #include <QObject>
-
-/// FIXME: This temprorary stupid hardcoded ThemeManager to be replaced with new one easily customizable through ini-file
+#include <QUrl>
 
 class Style : public QObject
 {
     Q_OBJECT
 
     // Default styles
-    Q_PROPERTY(QColor backgroundColor READ backgroundColor CONSTANT)
+    Q_PROPERTY(QColor pageBackgroundColor READ pageBackgroundColor CONSTANT)
+    Q_PROPERTY(QUrl pageBackgroundImage READ pageBackgroundImage CONSTANT)
 
     // ActionBar
     Q_PROPERTY(QColor actionBarBackgroundColor READ actionBarBackgroundColor CONSTANT)
@@ -24,7 +24,8 @@ public:
     Style(QObject *parent = 0);
     virtual ~Style() {}
 
-    QColor backgroundColor() const { return QColor("#262626"); }
+    QColor pageBackgroundColor() const { return QColor("#262626"); }
+    QUrl pageBackgroundImage() const { return QUrl(); }
 
     QColor actionBarBackgroundColor() const { return QColor("#2b2b2b"); }
 

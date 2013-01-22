@@ -24,44 +24,50 @@ AbstractPane {
 
     Rectangle {
         anchors.fill: parent
-        color: Style.backgroundColor
+        color: Style.pageBackgroundColor
+    }
 
-        Flickable {
-            id: flickable
-            anchors.fill: parent
-            contentHeight: column.height
-            contentWidth: column.width
-            flickableDirection: Flickable.VerticalFlick
-            interactive: contentHeight > height
+    Image {
+        anchors.fill: parent
+        source: Style.pageBackgroundImage
+    }
 
-            Binding {
-                target: childrenWrapper
-                property: "height"
-                value: childrenWrapper.childrenRect.height
-                when: root.height
+    Flickable {
+        id: flickable
+        anchors.fill: parent
+        contentHeight: column.height
+        contentWidth: column.width
+        flickableDirection: Flickable.VerticalFlick
+        interactive: contentHeight > height
+
+        Binding {
+            target: childrenWrapper
+            property: "height"
+            value: childrenWrapper.childrenRect.height
+            when: root.height
+        }
+
+        Column {
+            id: column
+
+            Item {
+                height: titleBar ? titleBar.height : 0; width: root.width
             }
 
-            Column {
-                id: column
+            Item {
+                id: childrenWrapper
+                implicitHeight: root.height ? root.height
+                                              - (titleBar ? titleBar.height : 0)
+                                              - (bottomBar.visible ? bottomBar.height : 0) : 0
+                implicitWidth: root.width
+            }
 
-                Item {
-                    height: titleBar ? titleBar.height : 0; width: root.width
-                }
-
-                Item {
-                    id: childrenWrapper
-                    implicitHeight: root.height ? root.height
-                                                  - (titleBar ? titleBar.height : 0)
-                                                  - (bottomBar.visible ? bottomBar.height : 0) : 0
-                    implicitWidth: root.width
-                }
-
-                Item {
-                    height: bottomBar.height; width: root.width
-                }
+            Item {
+                height: bottomBar.height; width: root.width
             }
         }
     }
+
 
     TitleBar {
         data: titleBar
