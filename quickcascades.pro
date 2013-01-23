@@ -35,9 +35,9 @@ OTHER_FILES += \
     qml/QuickCascades/private/ActionBarActionDelegate.qml \
     qml/QuickCascades/private/BackActionDelegate.qml \
     qml/QuickCascades/private/BottomBar.qml \
+    qml/QuickCascades/private/TabBar.qml \
     qml/QuickCascades/private/TabBarDelegate.qml \
-    qml/QuickCascades/private/TabMenuDelegate.qml \
-    qml/QuickCascades/private/TabBar.qml
+    qml/QuickCascades/private/TabMenuDelegate.qml
 
 qmldir.files = qml/QuickCascades/qmldir
 
