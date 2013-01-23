@@ -8,19 +8,7 @@
 #include <QQmlContext>
 #include <QQmlEngine>
 
-static QObject *styleObjectProvider(QQmlEngine *engine, QJSEngine *scriptEngine)
-{
-    Q_UNUSED(engine)
-    Q_UNUSED(scriptEngine)
-    return new Style();
-}
-
-static QObject *windowManagerObjectProvider(QQmlEngine *engine, QJSEngine *scriptEngine)
-{
-    Q_UNUSED(engine)
-    Q_UNUSED(scriptEngine)
-    return new WindowManager();
-}
+QString QuickCascadesPlugin::m_themeFileName;
 
 void QuickCascadesPlugin::registerTypes(const char *uri)
 {
@@ -34,6 +22,31 @@ void QuickCascadesPlugin::registerTypes(const char *uri)
 
 void QuickCascadesPlugin::initializeEngine(QQmlEngine *engine, const char *uri)
 {
-    Q_UNUSED(engine)
     Q_UNUSED(uri)
+
+    if (engine->property("__qc_themeFileName").isValid()) {
+        m_themeFileName = engine->property("__qc_themeFileName").toString();
+    } else {
+        /// TODO: This is a workaroung to get a plugin path, a patch for Qt is needed
+        foreach (QString path, engine->importPathList()) {
+            if (QFileInfo(path + "/QuickCascades").exists()) {
+                m_themeFileName = path + "/QuickCascades/themes/cascades-light.theme";
+                break;
+            }
+        }
+    }
+}
+
+QObject *QuickCascadesPlugin::styleObjectProvider(QQmlEngine *engine, QJSEngine *scriptEngine)
+{
+    Q_UNUSED(engine)
+    Q_UNUSED(scriptEngine)
+    return new Style(m_themeFileName);
+}
+
+QObject *QuickCascadesPlugin::windowManagerObjectProvider(QQmlEngine *engine, QJSEngine *scriptEngine)
+{
+    Q_UNUSED(engine)
+    Q_UNUSED(scriptEngine)
+    return new WindowManager();
 }
