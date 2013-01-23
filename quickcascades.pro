@@ -39,6 +39,9 @@ OTHER_FILES += \
     qml/QuickCascades/private/TabBarDelegate.qml \
     qml/QuickCascades/private/TabMenuDelegate.qml
 
+OTHER_FILES += \
+    qml/QuickCascades/themes/cascades-light.theme
+
 qmldir.files = qml/QuickCascades/qmldir
 
 DESTDIR = qml/QuickCascades
