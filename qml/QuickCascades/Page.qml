@@ -80,26 +80,37 @@ AbstractPane {
     BottomBar {
         id: bottomBar
 
+        /// TODO: I am not sure about Loader
         Loader {
             id: backActionLoader
-            sourceComponent: root.pageStack && backAction.visible ? backAction : undefined
+            sourceComponent: root.pageStack && backAction.visible ? backActionComponent : undefined
         }
 
         Component {
-            id: backAction
+            id: backActionComponent
             BackActionDelegate {
                 action: root.backAction
             }
         }
 
         TabBar {
+            id: tabBar
             tabs: if (WindowManager.tabbedPane) WindowManager.tabbedPane.tabs
+            visible: !(root.pageStack && backAction.visible)
         }
 
         ActionBar {
             actions: root.actions
             anchors {
-                left: backActionLoader.visible ? backActionLoader.right : parent.left
+                left: {
+                    /// TODO: Better conditions are needed
+                    if (root.pageStack && backAction.visible)
+                        backActionLoader.right
+                    else if (WindowManager.tabbedPane)
+                        tabBar.right
+                    else
+                        parent.left
+                }
                 right: parent.right
             }
         }
