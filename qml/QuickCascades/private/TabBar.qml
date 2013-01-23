@@ -8,10 +8,16 @@ Row {
 
     height: 140
 
-    Repeater {
+    TabBarMenuDelegate {
+        action: Action {
+            onTriggered: WindowManager.tabbedPane.sidebarState = SidebarState.VisibleFull
+        }
+    }
+
+    /*Repeater {
         model: root.tabs
         TabBarDelegate {
             tab: modelData
         }
-    }
+    }*/
 }
