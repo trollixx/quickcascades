@@ -34,10 +34,10 @@ OTHER_FILES += \
     qml/QuickCascades/private/ActionBar.qml \
     qml/QuickCascades/private/ActionBarActionDelegate.qml \
     qml/QuickCascades/private/BackActionDelegate.qml \
-    qml/QuickCascades/private/BottomBar.qml \
     qml/QuickCascades/private/TabBar.qml \
     qml/QuickCascades/private/TabBarDelegate.qml \
-    qml/QuickCascades/private/TabMenuDelegate.qml
+    qml/QuickCascades/private/TabMenuDelegate.qml \
+    qml/QuickCascades/private/ToolBar.qml
 
 OTHER_FILES += \
     qml/QuickCascades/themes/cascades-light.ini

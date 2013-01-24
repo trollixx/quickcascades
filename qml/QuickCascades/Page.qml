@@ -46,10 +46,7 @@ AbstractPane {
 
     property list<Action> actions
 
-    /// TODO: Make the next two a grouped property in the future
     property int actionBarAlignment: ActionBarAlignment.Justify
-    property int actionBarVisibility: ChromeVisibility.Visible
-
     property Action backAction: Action {
         icon: "../icons/back.png"
         text: qsTr("Back")
@@ -58,6 +55,7 @@ AbstractPane {
     property PageStack pageStack
     property int status: PageStatus.Inactive
     property TitleBar titleBar
+    property int toolBarVisibility: ChromeVisibility.Visible
 
     visible: false
 
@@ -87,12 +85,12 @@ AbstractPane {
             id: childrenWrapper
             implicitHeight: root.height ? root.height
                                           - (titleBar && titleBar.mode === ChromeVisibility.Visible ? titleBar.height : 0)
-                                          - (bottomBar.visible && root.actionBarVisibility === ChromeVisibility.Visible ? bottomBar.height : 0) : 0
+                                          - (bottomBar.visible && root.toolBarVisibility === ChromeVisibility.Visible ? bottomBar.height : 0) : 0
             implicitWidth: root.width
         }
 
         Item {
-            height: root.actionBarVisibility === ChromeVisibility.Visible ? bottomBar.height : 0
+            height: root.toolBarVisibility === ChromeVisibility.Visible ? bottomBar.height : 0
             width: root.width
         }
     }
@@ -101,7 +99,7 @@ AbstractPane {
         data: titleBar
     }
 
-    BottomBar {
+    ToolBar {
         id: bottomBar
 
         /// TODO: I am not sure about Loader
