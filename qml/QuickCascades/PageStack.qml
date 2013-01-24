@@ -313,4 +313,10 @@ AbstractPane {
             }
         }
     }
+
+    MouseArea {
+        anchors.fill: parent
+        enabled: root.busy
+        z: 1
+    }
 }
