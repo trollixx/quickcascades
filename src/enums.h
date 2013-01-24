@@ -3,7 +3,7 @@
 
 #include <QObject>
 
-class QCPageStatus : public QObject
+class PageStatus : public QObject
 {
     Q_OBJECT
     Q_ENUMS(Status)
@@ -17,7 +17,7 @@ public:
     };
 };
 
-class QCSidebarState : public QObject
+class SidebarState : public QObject
 {
     Q_OBJECT
     Q_ENUMS(State)

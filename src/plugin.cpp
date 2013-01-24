@@ -16,8 +16,8 @@ void QuickCascadesPlugin::registerTypes(const char *uri)
     qmlRegisterSingletonType<WindowManager>(uri, 1, 0, "WindowManager", windowManagerObjectProvider);
 
     // @uri QuickCascades
-    qmlRegisterUncreatableType<QCPageStatus>(uri, 1, 0, "PageStatus", "");
-    qmlRegisterUncreatableType<QCSidebarState>(uri, 1, 0, "SidebarState", "");
+    qmlRegisterUncreatableType<PageStatus>(uri, 1, 0, "PageStatus", "");
+    qmlRegisterUncreatableType<SidebarState>(uri, 1, 0, "SidebarState", "");
 }
 
 void QuickCascadesPlugin::initializeEngine(QQmlEngine *engine, const char *uri)
