@@ -64,7 +64,7 @@ AbstractPane {
 
     Rectangle {
         anchors.fill: parent
-        color: "#111" /// TODO: Theming
+        color: Style.tabMenuBackgroundColor
     }
 
     // TabMenu

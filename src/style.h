@@ -18,6 +18,13 @@ class Style : public QObject
     Q_PROPERTY(QColor pageBackgroundColor READ pageBackgroundColor NOTIFY styleUpdated)
     Q_PROPERTY(QUrl pageBackgroundImage READ pageBackgroundImage NOTIFY styleUpdated)
 
+    // TabMenu
+    Q_PROPERTY(QColor tabMenuBackgroundColor READ tabMenuBackgroundColor NOTIFY styleUpdated)
+    Q_PROPERTY(QColor tabMenuCurrentItemColor READ tabMenuCurrentItemColor NOTIFY styleUpdated)
+    Q_PROPERTY(QColor tabMenuPressedItemColor READ tabMenuPressedItemColor NOTIFY styleUpdated)
+    Q_PROPERTY(QColor tabMenuPressedItemBorderColor READ tabMenuPressedItemBorderColor NOTIFY styleUpdated)
+    Q_PROPERTY(int tabMenuPressedItemBorderWidth READ tabMenuPressedItemBorderWidth NOTIFY styleUpdated)
+
     // TitleBar
 
 
@@ -49,6 +56,12 @@ public:
     QColor pageBackgroundColor() const { return m_pageBackgroundColor; }
     QUrl pageBackgroundImage() const { return m_pageBackgroundImage; }
 
+    QColor tabMenuBackgroundColor() const { return m_tabMenuBackgroundColor; }
+    QColor tabMenuCurrentItemColor() const { return m_tabMenuCurrentItemColor; }
+    QColor tabMenuPressedItemColor() const { return m_tabMenuPressedItemColor; }
+    QColor tabMenuPressedItemBorderColor() const { return m_tabMenuPressedItemBorderColor; }
+    int tabMenuPressedItemBorderWidth() const { return m_tabMenuPressedItemBorderWidth; }
+
 signals:
     void themeFileNameChanged();
     void styleUpdated();
@@ -57,6 +70,12 @@ private:
     QString m_themeFileName;
 
     QColor m_defaultHighlightColor;
+
+    QColor m_tabMenuBackgroundColor;
+    QColor m_tabMenuCurrentItemColor;
+    QColor m_tabMenuPressedItemColor;
+    QColor m_tabMenuPressedItemBorderColor;
+    int m_tabMenuPressedItemBorderWidth;
 
     QColor m_pageBackgroundColor;
     QUrl m_pageBackgroundImage;

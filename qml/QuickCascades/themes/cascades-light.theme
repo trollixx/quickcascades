@@ -1,5 +1,13 @@
 [General]
 
+[TabMenu]
+background-color=#111111
+current-item-color=#00a7de
+pressed-item-color=transparent
+pressed-item-border-color=#00a7de
+pressed-item-border-width=3
+
 [Page]
 background-color=#262626
 background-image=
+

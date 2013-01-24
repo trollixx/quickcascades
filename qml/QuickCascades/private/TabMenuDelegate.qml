@@ -37,18 +37,18 @@ Item {
     Rectangle {
         id: selectedHighlight
         anchors.fill: parent
-        color: "#00a7de" /// TODO: Theming
+        color: Style.tabMenuCurrentItemColor
         opacity: 0
     }
 
     Rectangle {
         id: pressedHighlight
         anchors.fill: parent
-        border { /// TODO: Theming, it needs more Cacades styling (complex border)
-            color: "#00a7de"
-            width: 3
+        border {
+            color: Style.tabMenuPressedItemBorderColor
+            width: Style.tabMenuPressedItemBorderWidth
         }
-        color: "transparent" /// TODO: Theming
+        color: Style.tabMenuPressedItemColor
         opacity: 0
     }
 
