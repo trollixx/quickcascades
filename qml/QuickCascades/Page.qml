@@ -81,44 +81,25 @@ AbstractPane {
         source: Style.pageBackgroundImage
     }
 
-    Flickable {
-        id: flickable
-        anchors.fill: parent
-        contentHeight: column.height
-        contentWidth: column.width
-        flickableDirection: Flickable.VerticalFlick
-        interactive: contentHeight > height
-
-        Binding {
-            target: childrenWrapper
-            property: "height"
-            value: childrenWrapper.childrenRect.height
-            when: root.height
+    Column {
+        Item {
+            height: titleBar && titleBar.mode === BarMode.BuiltIn ? titleBar.height : 0
+            width: root.width
         }
 
-        Column {
-            id: column
+        Item {
+            id: childrenWrapper
+            implicitHeight: root.height ? root.height
+                                          - (titleBar && titleBar.mode === BarMode.BuiltIn ? titleBar.height : 0)
+                                          - (bottomBar.visible && root.actionBarMode === BarMode.BuiltIn ? bottomBar.height : 0) : 0
+            implicitWidth: root.width
+        }
 
-            Item {
-                height: titleBar && titleBar.mode === BarMode.BuiltIn ? titleBar.height : 0
-                width: root.width
-            }
-
-            Item {
-                id: childrenWrapper
-                implicitHeight: root.height ? root.height
-                                              - (titleBar && titleBar.mode === BarMode.BuiltIn ? titleBar.height : 0)
-                                              - (bottomBar.visible && root.actionBarMode === BarMode.BuiltIn ? bottomBar.height : 0) : 0
-                implicitWidth: root.width
-            }
-
-            Item {
-                height: root.actionBarMode === BarMode.BuiltIn ? bottomBar.height : 0
-                width: root.width
-            }
+        Item {
+            height: root.actionBarMode === BarMode.BuiltIn ? bottomBar.height : 0
+            width: root.width
         }
     }
-
 
     TitleBar {
         data: titleBar
