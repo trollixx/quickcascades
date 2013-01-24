@@ -83,5 +83,10 @@ bool Style::reload()
     m_pageBackgroundImage = styleSettings.value("background-image").toUrl();
     styleSettings.endGroup();
 
+    styleSettings.beginGroup("TitleBar");
+    m_titleBarBackgroundColor = styleSettings.value("background-color").toString();
+    m_titleBarOpacity = styleSettings.value("opacity").toReal();
+    styleSettings.endGroup();
+
     return true;
 }

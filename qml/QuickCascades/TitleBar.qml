@@ -35,6 +35,7 @@
 ****************************************************************************/
 
 import QtQuick 2.0
+import QuickCascades 1.0
 
 AbstractBar {
     property alias title: titleText.text
@@ -48,8 +49,8 @@ AbstractBar {
 
     Rectangle {
         anchors.fill: parent
-        color: "black"
-        opacity: 0.8
+        color: Style.titleBarBackgroundColor
+        opacity: Style.titleBarOpacity
     }
 
     Column {

@@ -62,7 +62,8 @@ class Style : public QObject
     Q_PROPERTY(int tabMenuPressedItemBorderWidth READ tabMenuPressedItemBorderWidth NOTIFY styleUpdated)
 
     // TitleBar
-
+    Q_PROPERTY(QColor titleBarBackgroundColor READ titleBarBackgroundColor NOTIFY styleUpdated)
+    Q_PROPERTY(qreal titleBarOpacity READ titleBarOpacity NOTIFY styleUpdated)
 
     // ActionBar
     Q_PROPERTY(QColor actionBarBackgroundColor READ actionBarBackgroundColor NOTIFY styleUpdated)
@@ -98,6 +99,9 @@ public:
     QColor tabMenuPressedItemBorderColor() const { return m_tabMenuPressedItemBorderColor; }
     int tabMenuPressedItemBorderWidth() const { return m_tabMenuPressedItemBorderWidth; }
 
+    QColor titleBarBackgroundColor() const { return m_titleBarBackgroundColor; }
+    qreal titleBarOpacity() const { return m_titleBarOpacity; }
+
 signals:
     void themeFileNameChanged();
     void styleUpdated();
@@ -115,6 +119,9 @@ private:
 
     QColor m_pageBackgroundColor;
     QUrl m_pageBackgroundImage;
+
+    QColor m_titleBarBackgroundColor;
+    qreal m_titleBarOpacity;
 };
 
 #endif // PLATFORMHELPER_H
