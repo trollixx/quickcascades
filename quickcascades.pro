@@ -13,8 +13,8 @@ SOURCES += \
     src/windowmanager.cpp
 
 HEADERS += \
+    src/enums.h \
     src/plugin.h \
-    src/quickcascades.h \
     src/style.h \
     src/windowmanager.h
 

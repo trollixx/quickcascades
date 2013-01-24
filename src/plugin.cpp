@@ -1,6 +1,6 @@
 #include "plugin.h"
 
-#include "quickcascades.h"
+#include "enums.h"
 #include "style.h"
 #include "windowmanager.h"
 
