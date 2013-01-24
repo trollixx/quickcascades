@@ -30,7 +30,6 @@ OTHER_FILES += \
     qml/QuickCascades/PageStack.js \
     qml/QuickCascades/Tab.qml \
     qml/QuickCascades/TabbedPane.qml \
-    qml/QuickCascades/TextField.qml \
     qml/QuickCascades/TitleBar.qml \
     qml/QuickCascades/private/ActionBar.qml \
     qml/QuickCascades/private/ActionBarActionDelegate.qml \
