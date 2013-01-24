@@ -111,6 +111,9 @@ private:
 
     QColor m_defaultHighlightColor;
 
+    QColor m_titleBarBackgroundColor;
+    qreal m_titleBarOpacity;
+
     QColor m_tabMenuBackgroundColor;
     QColor m_tabMenuCurrentItemColor;
     QColor m_tabMenuPressedItemColor;
@@ -119,9 +122,6 @@ private:
 
     QColor m_pageBackgroundColor;
     QUrl m_pageBackgroundImage;
-
-    QColor m_titleBarBackgroundColor;
-    qreal m_titleBarOpacity;
 };
 
 #endif // PLATFORMHELPER_H

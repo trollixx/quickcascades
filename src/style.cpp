@@ -70,17 +70,17 @@ bool Style::reload()
     styleSettings.beginGroup("General");
     styleSettings.endGroup();
 
+    styleSettings.beginGroup("Page");
+    m_pageBackgroundColor = styleSettings.value("background-color").toString();
+    m_pageBackgroundImage = styleSettings.value("background-image").toUrl();
+    styleSettings.endGroup();
+
     styleSettings.beginGroup("TabMenu");
     m_tabMenuBackgroundColor = styleSettings.value("background-color").toString();
     m_tabMenuCurrentItemColor = styleSettings.value("current-item-color").toString();
     m_tabMenuPressedItemColor = styleSettings.value("pressed-item-color").toString();
     m_tabMenuPressedItemBorderColor = styleSettings.value("pressed-item-border-color").toString();
     m_tabMenuPressedItemBorderWidth = styleSettings.value("pressed-item-border-width").toInt();
-    styleSettings.endGroup();
-
-    styleSettings.beginGroup("Page");
-    m_pageBackgroundColor = styleSettings.value("background-color").toString();
-    m_pageBackgroundImage = styleSettings.value("background-image").toUrl();
     styleSettings.endGroup();
 
     styleSettings.beginGroup("TitleBar");
