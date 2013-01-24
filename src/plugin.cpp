@@ -32,7 +32,7 @@ void QuickCascadesPlugin::initializeEngine(QQmlEngine *engine, const char *uri)
         /// TODO: This is a workaroung to get a plugin path, a patch for Qt is needed
         foreach (QString path, engine->importPathList()) {
             if (QFileInfo(path + "/QuickCascades").exists()) {
-                m_themeFileName = path + "/QuickCascades/themes/cascades-light.theme";
+                m_themeFileName = path + "/QuickCascades/themes/cascades-light.ini";
                 break;
             }
         }
