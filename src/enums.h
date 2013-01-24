@@ -53,15 +53,16 @@ public:
     };
 };
 
-class BarMode : public QObject
+class ChromeVisibility : public QObject
 {
     Q_OBJECT
-    Q_ENUMS(Mode)
+    Q_ENUMS(Visibility)
 
 public:
-    enum Mode {
-        BuiltIn,
-        Overlay
+    enum Visibility {
+        Visible,
+        Overlay,
+        Hidden
     };
 };
 

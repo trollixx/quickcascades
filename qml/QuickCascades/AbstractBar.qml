@@ -38,5 +38,5 @@ import QtQuick 2.0
 import QuickCascades 1.0
 
 Item {
-    property int mode: BarMode.BuiltIn
+    property int mode: ChromeVisibility.Visible
 }

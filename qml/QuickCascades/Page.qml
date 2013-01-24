@@ -45,6 +45,11 @@ AbstractPane {
     default property alias data: childrenWrapper.data
 
     property list<Action> actions
+
+    /// TODO: Make the next two a grouped property in the future
+    property int actionBarAlignment: ActionBarAlignment.Justify
+    property int actionBarVisibility: ChromeVisibility.Visible
+
     property Action backAction: Action {
         icon: "../icons/back.png"
         text: qsTr("Back")
@@ -53,15 +58,6 @@ AbstractPane {
     property PageStack pageStack
     property int status: PageStatus.Inactive
     property TitleBar titleBar
-
-    /// FIXME: Here are temporary workarounds while QML-defined grouped properties don't work
-    property alias actionBarMode: actionBarProperty.mode
-    property alias actionBarAlignment: actionBarProperty.alignment
-    QtObject {
-        id: actionBarProperty
-        property int alignment: ActionBarAlignment.Justify
-        property int mode: BarMode.BuiltIn
-    }
 
     visible: false
 
@@ -83,20 +79,20 @@ AbstractPane {
 
     Column {
         Item {
-            height: titleBar && titleBar.mode === BarMode.BuiltIn ? titleBar.height : 0
+            height: titleBar && titleBar.mode === ChromeVisibility.Visible ? titleBar.height : 0
             width: root.width
         }
 
         Item {
             id: childrenWrapper
             implicitHeight: root.height ? root.height
-                                          - (titleBar && titleBar.mode === BarMode.BuiltIn ? titleBar.height : 0)
-                                          - (bottomBar.visible && root.actionBarMode === BarMode.BuiltIn ? bottomBar.height : 0) : 0
+                                          - (titleBar && titleBar.mode === ChromeVisibility.Visible ? titleBar.height : 0)
+                                          - (bottomBar.visible && root.actionBarVisibility === ChromeVisibility.Visible ? bottomBar.height : 0) : 0
             implicitWidth: root.width
         }
 
         Item {
-            height: root.actionBarMode === BarMode.BuiltIn ? bottomBar.height : 0
+            height: root.actionBarVisibility === ChromeVisibility.Visible ? bottomBar.height : 0
             width: root.width
         }
     }
