@@ -1,6 +1,6 @@
 import QtQuick 2.0
 
-Item {
+AbstractBar {
     property alias title: titleText.text
     property alias subtitle: subtitleText.text
 

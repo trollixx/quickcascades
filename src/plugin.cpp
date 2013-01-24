@@ -16,6 +16,8 @@ void QuickCascadesPlugin::registerTypes(const char *uri)
     qmlRegisterSingletonType<WindowManager>(uri, 1, 0, "WindowManager", windowManagerObjectProvider);
 
     // @uri QuickCascades
+    qmlRegisterUncreatableType<ActionBarAlignment>(uri, 1, 0, "ActionBarAlignment", "");
+    qmlRegisterUncreatableType<BarMode>(uri, 1, 0, "BarMode", "");
     qmlRegisterUncreatableType<PageStatus>(uri, 1, 0, "PageStatus", "");
     qmlRegisterUncreatableType<SidebarState>(uri, 1, 0, "SidebarState", "");
 }

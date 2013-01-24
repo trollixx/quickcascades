@@ -3,6 +3,32 @@
 
 #include <QObject>
 
+class ActionBarAlignment : public QObject
+{
+    Q_OBJECT
+    Q_ENUMS(Alignment)
+
+public:
+    enum Alignment {
+        Center,
+        Justify,
+        Left,
+        Right
+    };
+};
+
+class BarMode : public QObject
+{
+    Q_OBJECT
+    Q_ENUMS(Mode)
+
+public:
+    enum Mode {
+        BuiltIn,
+        Overlay
+    };
+};
+
 class PageStatus : public QObject
 {
     Q_OBJECT

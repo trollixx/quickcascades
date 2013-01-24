@@ -18,6 +18,15 @@ AbstractPane {
     property int status: PageStatus.Inactive
     property TitleBar titleBar
 
+    /// FIXME: Here are temporary workarounds while QML-defined grouped properties don't work
+    property alias actionBarMode: actionBarProperty.mode
+    property alias actionBarAlignment: actionBarProperty.alignment
+    QtObject {
+        id: actionBarProperty
+        property int alignment: ActionBarAlignment.Justify
+        property int mode: BarMode.BuiltIn
+    }
+
     visible: false
 
     width: visible && parent ? parent.width : internal.previousWidth
@@ -55,19 +64,21 @@ AbstractPane {
             id: column
 
             Item {
-                height: titleBar ? titleBar.height : 0; width: root.width
+                height: titleBar && titleBar.mode === BarMode.BuiltIn ? titleBar.height : 0
+                width: root.width
             }
 
             Item {
                 id: childrenWrapper
                 implicitHeight: root.height ? root.height
-                                              - (titleBar ? titleBar.height : 0)
-                                              - (bottomBar.visible ? bottomBar.height : 0) : 0
+                                              - (titleBar && titleBar.mode === BarMode.BuiltIn ? titleBar.height : 0)
+                                              - (bottomBar.visible && root.actionBarMode === BarMode.BuiltIn ? bottomBar.height : 0) : 0
                 implicitWidth: root.width
             }
 
             Item {
-                height: bottomBar.height; width: root.width
+                height: root.actionBarMode === BarMode.BuiltIn ? bottomBar.height : 0
+                width: root.width
             }
         }
     }

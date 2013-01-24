@@ -20,6 +20,7 @@ HEADERS += \
 
 OTHER_FILES += \
     qml/QuickCascades/qmldir \
+    qml/QuickCascades/AbstractBar.qml \
     qml/QuickCascades/AbstractPane.qml \
     qml/QuickCascades/Action.qml \
     qml/QuickCascades/ApplicationWindow.qml \
