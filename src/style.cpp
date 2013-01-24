@@ -31,10 +31,10 @@ bool Style::reload()
         return false;
     }
 
-    styleSettings.beginGroup("general");
+    styleSettings.beginGroup("General");
     styleSettings.endGroup();
 
-    styleSettings.beginGroup("page");
+    styleSettings.beginGroup("Page");
     m_pageBackgroundColor = styleSettings.value("background-color").toString();
     m_pageBackgroundImage = styleSettings.value("background-image").toUrl();
     styleSettings.endGroup();

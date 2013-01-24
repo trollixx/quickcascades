@@ -40,14 +40,14 @@ public:
     // Style related methods
     QColor defaultHighlightColor() const { return QColor("#262626"); }
 
-    QColor pageBackgroundColor() const { return m_pageBackgroundColor; }
-    QUrl pageBackgroundImage() const { return m_pageBackgroundImage; }
-
     QColor actionBarBackgroundColor() const { return QColor("#2b2b2b"); }
 
     QColor textFieldBackgroundColor() const { return QColor("#f9f9f9"); }
     QColor textFieldBorderColor() const { return QColor("#aaa"); }
     QColor textFieldBorderColorFocused() const { return QColor("#00a7de"); }
+
+    QColor pageBackgroundColor() const { return m_pageBackgroundColor; }
+    QUrl pageBackgroundImage() const { return m_pageBackgroundImage; }
 
 signals:
     void themeFileNameChanged();
@@ -60,7 +60,6 @@ private:
 
     QColor m_pageBackgroundColor;
     QUrl m_pageBackgroundImage;
-
 };
 
 #endif // PLATFORMHELPER_H
