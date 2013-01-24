@@ -242,11 +242,6 @@ AbstractPane {
                     name: ""
                     PropertyChanges { target: container; visible: true; }
                 },
-                // Start state for pop entry, end state for push exit.
-                State {
-                    name: "Left"
-                    PropertyChanges { target: container; x: -width; }
-                },
                 // Start state for push entry, end state for pop exit.
                 State {
                     name: "Right"
@@ -260,24 +255,6 @@ AbstractPane {
             ]
 
             transitions: [
-                // Push exit transition
-                Transition {
-                    from: ""; to: "Left"
-                    SequentialAnimation {
-                        ScriptAction { script: transitionStarted() }
-                        PropertyAnimation { property: "x"; easing.type: Easing.OutQuad; duration: transitionDuration }
-                        ScriptAction { script: transitionEnded() }
-                    }
-                },
-                // Pop entry transition
-                Transition {
-                    from: "Left"; to: ""
-                    SequentialAnimation {
-                        ScriptAction { script: transitionStarted() }
-                        PropertyAnimation { property: "x"; easing.type: Easing.OutQuad; duration: transitionDuration }
-                        ScriptAction { script: transitionEnded() }
-                    }
-                },
                 // Pop exit transition
                 Transition {
                     from: ""; to: "Right"
