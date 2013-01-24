@@ -1,4 +1,4 @@
-#include "quickcascades_plugin.h"
+#include "plugin.h"
 
 #include "quickcascades.h"
 #include "style.h"

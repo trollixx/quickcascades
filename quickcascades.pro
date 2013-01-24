@@ -8,12 +8,12 @@ TARGET = $$qtLibraryTarget($$TARGET)
 uri = QuickCascades
 
 SOURCES += \
-    src/quickcascades_plugin.cpp \
+    src/plugin.cpp \
     src/style.cpp \
     src/windowmanager.cpp
 
 HEADERS += \
-    src/quickcascades_plugin.h \
+    src/plugin.h \
     src/quickcascades.h \
     src/style.h \
     src/windowmanager.h
