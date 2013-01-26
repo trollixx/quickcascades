@@ -45,8 +45,8 @@ AbstractBar {
     property alias actions: actionBar.actions
     property alias backAction: backActionDelegate.action
 
-    anchors.bottom: parent.bottom
-    implicitHeight: 140; implicitWidth: parent.width
+    implicitHeight: 140; implicitWidth: WindowManager.appWindow.width
+    y: WindowManager.appWindow.height - root.implicitHeight
 
     MouseArea {
         anchors.fill: parent
