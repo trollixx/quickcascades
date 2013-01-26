@@ -48,14 +48,16 @@ AbstractPane {
 
     property int actionBarAlignment: ActionBarAlignment.Justify
     property Action backAction: Action {
+        id: defaultBackAction
         icon: "../icons/back.png"
         text: qsTr("Back")
+        visible: root.pageStack && root !== root.pageStack.initialPage
         onTriggered: root.pageStack.pop()
     }
     property PageStack pageStack
     property int status: PageStatus.Inactive
     property TitleBar titleBar
-    property int toolBarVisibility: ChromeVisibility.Visible
+    property AbstractBar toolBar: defaultToolBar
 
     visible: false
 
@@ -77,20 +79,20 @@ AbstractPane {
 
     Column {
         Item {
-            height: titleBar && titleBar.mode === ChromeVisibility.Visible ? titleBar.height : 0
+            height: titleBar && titleBar.visibility === ChromeVisibility.Visible ? titleBar.height : 0
             width: root.width
         }
 
         Item {
             id: childrenWrapper
             implicitHeight: root.height ? root.height
-                                          - (titleBar && titleBar.mode === ChromeVisibility.Visible ? titleBar.height : 0)
-                                          - (bottomBar.visible && root.toolBarVisibility === ChromeVisibility.Visible ? bottomBar.height : 0) : 0
+                                          - (titleBar && titleBar.visibility === ChromeVisibility.Visible ? titleBar.height : 0)
+                                          - (root.toolBar.visible && root.toolBar.visibility === ChromeVisibility.Visible ? root.toolBar.height : 0) : 0
             implicitWidth: root.width
         }
 
         Item {
-            height: root.toolBarVisibility === ChromeVisibility.Visible ? bottomBar.height : 0
+            height: root.toolBar.visibility === ChromeVisibility.Visible ? defaultToolBar.height : 0
             width: root.width
         }
     }
@@ -100,42 +102,9 @@ AbstractPane {
     }
 
     ToolBar {
-        id: bottomBar
-
-        /// TODO: I am not sure about Loader
-        Loader {
-            id: backActionLoader
-            sourceComponent: root.pageStack && backAction.visible ? backActionComponent : undefined
-        }
-
-        Component {
-            id: backActionComponent
-            BackActionDelegate {
-                action: root.backAction
-            }
-        }
-
-        TabBar {
-            id: tabBar
-            tabs: if (WindowManager.tabbedPane) WindowManager.tabbedPane.tabs
-            visible: !(root.pageStack && backAction.visible)
-        }
-
-        ActionBar {
-            actions: root.actions
-            anchors {
-                left: {
-                    /// TODO: Better conditions are needed
-                    if (root.pageStack && backAction.visible)
-                        backActionLoader.right
-                    else if (WindowManager.tabbedPane)
-                        tabBar.right
-                    else
-                        parent.left
-                }
-                right: parent.right
-            }
-        }
+        id: defaultToolBar
+        actions: root.actions
+        backAction: root.backAction
     }
 
     QtObject {

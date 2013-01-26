@@ -141,9 +141,6 @@ function initPage(page, properties) {
         page.pageStack = root;
     }
 
-    if (depth === 0)
-        page.backAction.visible = false
-
     return container;
 }
 

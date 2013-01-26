@@ -37,9 +37,20 @@
 import QtQuick 2.0
 import QuickCascades 1.0
 
+import "."
+
 AbstractBar {
+    id: root
+
+    property alias actions: actionBar.actions
+    property alias backAction: backActionDelegate.action
+
     anchors.bottom: parent.bottom
     implicitHeight: 140; implicitWidth: parent.width
+
+    MouseArea {
+        anchors.fill: parent
+    }
 
     Rectangle {
         anchors.fill: parent
@@ -50,7 +61,31 @@ AbstractBar {
         /// TODO: opacity
     }
 
-    MouseArea {
-        anchors.fill: parent
+    BackActionDelegate {
+        id: backActionDelegate
+    }
+
+    TabBar {
+        id: tabBar
+        tabs: if (WindowManager.tabbedPane) WindowManager.tabbedPane.tabs
+        visible: !backAction.visible
+    }
+
+    ActionBar {
+        id: actionBar
+
+        actions: root.actions
+        anchors {
+            left: {
+                /// TODO: Better conditions are needed
+                if (root.pageStack && backAction.visible)
+                    backActionLoader.right
+                else if (WindowManager.tabbedPane)
+                    tabBar.right
+                else
+                    parent.left
+            }
+            right: parent.right
+        }
     }
 }
