@@ -88,4 +88,17 @@ AbstractBar {
             right: parent.right
         }
     }
+
+    states: State {
+        name: "hidden"
+        when: root.visibility === ChromeVisibility.Hidden
+        PropertyChanges {
+            target: root
+            y: WindowManager.appWindow.height + root.height
+        }
+    }
+
+    transitions: Transition {
+        NumberAnimation { property: "y"; duration: 250; easing.type: Easing.OutQuad }
+    }
 }
