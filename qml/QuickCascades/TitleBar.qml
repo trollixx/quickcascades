@@ -38,6 +38,8 @@ import QtQuick 2.0
 import QuickCascades 1.0
 
 AbstractBar {
+    id: root
+
     property alias title: titleText.text
     property alias subtitle: subtitleText.text
 
@@ -71,5 +73,18 @@ AbstractBar {
                 weight: Font.Light
             }
         }
+    }
+
+    states: State {
+        name: "hidden"
+        when: root.visibility === ChromeVisibility.Hidden
+        PropertyChanges {
+            target: root
+            y: -root.height
+        }
+    }
+
+    transitions: Transition {
+        NumberAnimation { property: "y"; duration: 250; easing.type: Easing.OutQuad }
     }
 }
