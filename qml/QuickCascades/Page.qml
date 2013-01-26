@@ -58,6 +58,7 @@ AbstractPane {
     property int status: PageStatus.Inactive
     property TitleBar titleBar
     property AbstractBar toolBar: defaultToolBar
+    property alias toolBarVisibility: defaultToolBar.visibility
 
     visible: false
 
@@ -92,7 +93,7 @@ AbstractPane {
         }
 
         Item {
-            height: root.toolBar.visibility === ChromeVisibility.Visible ? defaultToolBar.height : 0
+            height: root.toolBar.visibility === ChromeVisibility.Visible ? root.toolBar.height : 0
             width: root.width
         }
     }
