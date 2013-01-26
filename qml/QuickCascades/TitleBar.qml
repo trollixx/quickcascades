@@ -41,7 +41,7 @@ AbstractBar {
     property alias title: titleText.text
     property alias subtitle: subtitleText.text
 
-    implicitHeight: 120; implicitWidth: parent.width
+    implicitHeight: 120; implicitWidth: WindowManager.appWindow.width
 
     MouseArea {
         anchors.fill: parent
