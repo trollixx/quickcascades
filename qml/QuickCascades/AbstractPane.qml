@@ -42,5 +42,6 @@ Item {
 
     MouseArea {
         anchors.fill: parent
+        preventStealing: true
     }
 }
