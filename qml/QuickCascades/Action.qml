@@ -37,6 +37,8 @@
 import QtQuick 2.0
 
 QtObject {
+    property bool checkable: false
+    property bool checked: false
     property bool enabled: true
     property string icon
     property string text
