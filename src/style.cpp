@@ -75,6 +75,10 @@ bool Style::reload()
     m_pageBackgroundImage = styleSettings.value("background-image").toUrl();
     styleSettings.endGroup();
 
+    styleSettings.beginGroup("TabBar");
+    m_tabBarMenuIcon = styleSettings.value("menu-icon").toString();
+    styleSettings.endGroup();
+
     styleSettings.beginGroup("TabMenu");
     m_tabMenuBackgroundColor = styleSettings.value("background-color").toString();
     m_tabMenuCurrentItemColor = styleSettings.value("current-item-color").toString();

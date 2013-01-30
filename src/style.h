@@ -54,6 +54,9 @@ class Style : public QObject
     Q_PROPERTY(QColor pageBackgroundColor READ pageBackgroundColor NOTIFY styleUpdated)
     Q_PROPERTY(QUrl pageBackgroundImage READ pageBackgroundImage NOTIFY styleUpdated)
 
+    // TabBar
+    Q_PROPERTY(QString tabBarMenuIcon READ tabBarMenuIcon NOTIFY styleUpdated)
+
     // TabMenu
     Q_PROPERTY(QColor tabMenuBackgroundColor READ tabMenuBackgroundColor NOTIFY styleUpdated)
     Q_PROPERTY(QColor tabMenuCurrentItemColor READ tabMenuCurrentItemColor NOTIFY styleUpdated)
@@ -97,6 +100,8 @@ public:
     QColor pageBackgroundColor() const { return m_pageBackgroundColor; }
     QUrl pageBackgroundImage() const { return m_pageBackgroundImage; }
 
+    QString tabBarMenuIcon() const { return m_tabBarMenuIcon; }
+
     QColor tabMenuBackgroundColor() const { return m_tabMenuBackgroundColor; }
     QColor tabMenuCurrentItemColor() const { return m_tabMenuCurrentItemColor; }
     QColor tabMenuPressedItemColor() const { return m_tabMenuPressedItemColor; }
@@ -120,6 +125,8 @@ private:
 
     QColor m_pageBackgroundColor;
     QUrl m_pageBackgroundImage;
+
+    QString m_tabBarMenuIcon;
 
     QColor m_tabMenuBackgroundColor;
     QColor m_tabMenuCurrentItemColor;

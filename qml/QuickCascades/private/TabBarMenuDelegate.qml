@@ -34,7 +34,7 @@ Item {
         Image {
             anchors.horizontalCenter: parent.horizontalCenter
             height: 81; width: 81
-            source: action.icon || "image://icons/tabbar-menu"
+            source: Style.tabBarMenuIcon
         }
 
         Label {
