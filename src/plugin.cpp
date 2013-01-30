@@ -77,20 +77,6 @@ void QuickCascadesPlugin::initializeEngine(QQmlEngine *engine, const char *uri)
         m_themeFileName = engine->property("__qc_themeFileName").toString();
     else
         m_themeFileName = pluginPath + "/themes/cascades-light.ini";
-
-    QString iconThemeFileName;
-    if (engine->property("__qc_iconThemeFileName").isValid())
-        iconThemeFileName = engine->property("__qc_iconThemeFileName").toString();
-    else
-        iconThemeFileName = pluginPath + "/themes/subway-icons.ini";
-
-    QString iconProviderId;
-    if (engine->property("__qc_iconProviderId").isValid())
-        iconProviderId = engine->property("__qc_iconProviderId").toString();
-    else
-        iconProviderId = "icons";
-
-    engine->addImageProvider(iconProviderId, new IconProvider(iconThemeFileName, pluginPath + "/icons"));
 }
 
 QObject *QuickCascadesPlugin::styleObjectProvider(QQmlEngine *engine, QJSEngine *scriptEngine)
