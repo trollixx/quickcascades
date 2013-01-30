@@ -37,7 +37,6 @@
 #include "plugin.h"
 
 #include "enums.h"
-#include "iconprovider.h"
 #include "style.h"
 #include "windowmanager.h"
 
