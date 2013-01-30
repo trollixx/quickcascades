@@ -50,7 +50,7 @@ Image {
             left: parent.left
             verticalCenter: parent.verticalCenter
         }
-        color: "#00aae7"
+        color: Style.actionBarPressedItemColor
         height: 101; width: 8
         opacity: 0
 
