@@ -47,11 +47,8 @@ class Style : public QObject
 
     Q_PROPERTY(QString themeFileName READ themeFileName NOTIFY themeFileNameChanged)
 
-    // Default
-    Q_PROPERTY(QString actionBarDefaultIcon READ actionBarDefaultIcon NOTIFY styleUpdated)
-    Q_PROPERTY(QColor defaultHighlightColor READ defaultHighlightColor NOTIFY styleUpdated)
-
     // ActionBar
+    Q_PROPERTY(QString actionBarDefaultIcon READ actionBarDefaultIcon NOTIFY styleUpdated)
     Q_PROPERTY(QColor actionBarPressedItemColor READ actionBarPressedItemColor NOTIFY styleUpdated)
 
     // Page
@@ -76,10 +73,6 @@ class Style : public QObject
     Q_PROPERTY(QString toolBarBackBackgroundImage READ toolBarBackBackgroundImage NOTIFY styleUpdated)
     Q_PROPERTY(QString toolBarBackIcon READ toolBarBackIcon NOTIFY styleUpdated)
 
-    // Text Field
-    Q_PROPERTY(QColor textFieldBackgroundColor READ textFieldBackgroundColor NOTIFY styleUpdated)
-    Q_PROPERTY(QColor textFieldBorderColor READ textFieldBorderColor NOTIFY styleUpdated)
-    Q_PROPERTY(QColor textFieldBorderColorFocused READ textFieldBorderColorFocused NOTIFY styleUpdated)
 public:
     Style(QString themeFileName, QObject *parent = 0);
     virtual ~Style() {}
@@ -89,15 +82,8 @@ public:
 
     bool reload();
 
-    // Style related methods
-    QColor defaultHighlightColor() const { return QColor("#262626"); }
-
     QString actionBarDefaultIcon() const { return m_actionBarDefaultIcon; }
     QColor actionBarPressedItemColor() const { return m_actionBarPressedItemColor; }
-
-    QColor textFieldBackgroundColor() const { return QColor("#f9f9f9"); }
-    QColor textFieldBorderColor() const { return QColor("#aaa"); }
-    QColor textFieldBorderColorFocused() const { return QColor("#00a7de"); }
 
     QColor pageBackgroundColor() const { return m_pageBackgroundColor; }
     QUrl pageBackgroundImage() const { return m_pageBackgroundImage; }
@@ -122,8 +108,6 @@ signals:
 
 private:
     QString m_themeFileName;
-
-    QColor m_defaultHighlightColor;
 
     QString m_actionBarDefaultIcon;
     QColor m_actionBarPressedItemColor;
