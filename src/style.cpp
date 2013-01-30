@@ -82,6 +82,7 @@ bool Style::reload()
 
     styleSettings.beginGroup("TabBar");
     m_tabBarMenuIcon = styleSettings.value("menu-icon").toString();
+    m_tabBarPressedItemColor = styleSettings.value("pressed-item-color").toString();
     styleSettings.endGroup();
 
     styleSettings.beginGroup("TabMenu");

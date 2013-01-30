@@ -8,7 +8,7 @@ Item {
 
     Rectangle {
         id: highlight
-        color: "#00aae7"
+        color: Style.tabBarPressedItemColor
         height: 8; width: parent.width
         opacity: 0
 
