@@ -70,6 +70,11 @@ bool Style::reload()
     styleSettings.beginGroup("General");
     styleSettings.endGroup();
 
+    styleSettings.beginGroup("ActionBar");
+    m_actionBarDefaultIcon = styleSettings.value("default-icon").toString();
+    m_actionBarPressedItemColor = styleSettings.value("pressed-item-color").toString();
+    styleSettings.endGroup();
+
     styleSettings.beginGroup("Page");
     m_pageBackgroundColor = styleSettings.value("background-color").toString();
     m_pageBackgroundImage = styleSettings.value("background-image").toUrl();

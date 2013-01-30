@@ -44,7 +44,7 @@ Item {
 
     Rectangle {
         id: highlight
-        color: "#00aae7"
+        color: Style.actionBarPressedItemColor
         height: 8; width: parent.width
         opacity: 0
 
@@ -70,7 +70,7 @@ Item {
         Image {
             anchors.horizontalCenter: parent.horizontalCenter
             height: 81; width: 81
-            source: action.icon || "image://icons/action-default"
+            source: action.icon || Style.actionBarDefaultIcon
         }
 
         Label {
