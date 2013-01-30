@@ -67,6 +67,7 @@ class Style : public QObject
 
     // ToolBar
     Q_PROPERTY(QString toolBarBackBackgroundImage READ toolBarBackBackgroundImage NOTIFY styleUpdated)
+    Q_PROPERTY(QString toolBarBackIcon READ toolBarBackIcon NOTIFY styleUpdated)
 
     // ActionBar
     Q_PROPERTY(QColor actionBarBackgroundColor READ actionBarBackgroundColor NOTIFY styleUpdated)
@@ -106,6 +107,7 @@ public:
     qreal titleBarOpacity() const { return m_titleBarOpacity; }
 
     QString toolBarBackBackgroundImage() const { return m_toolBarBackBackgroundImage; }
+    QString toolBarBackIcon() const { return m_toolBarBackIcon; }
 
 signals:
     void themeFileNameChanged();
@@ -129,7 +131,7 @@ private:
     QUrl m_pageBackgroundImage;
 
     QString m_toolBarBackBackgroundImage;
+    QString m_toolBarBackIcon;
 };
 
 #endif // PLATFORMHELPER_H
-

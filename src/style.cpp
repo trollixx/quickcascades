@@ -90,6 +90,7 @@ bool Style::reload()
 
     styleSettings.beginGroup("ToolBar");
     m_toolBarBackBackgroundImage = styleSettings.value("back-background-image").toString();
+    m_toolBarBackIcon = styleSettings.value("back-icon").toString();
     styleSettings.endGroup();
 
     return true;
