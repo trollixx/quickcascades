@@ -88,5 +88,9 @@ bool Style::reload()
     m_titleBarOpacity = styleSettings.value("opacity").toReal();
     styleSettings.endGroup();
 
+    styleSettings.beginGroup("ToolBar");
+    m_toolBarBackBackgroundImage = styleSettings.value("back-background-image").toString();
+    styleSettings.endGroup();
+
     return true;
 }

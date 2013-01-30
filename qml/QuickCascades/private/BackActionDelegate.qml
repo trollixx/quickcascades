@@ -41,7 +41,7 @@ Image {
     property Action action
 
     height: 140; width: 173
-    source: "../graphics/back_action_bg.png"
+    source: Style.toolBarBackBackgroundImage
     visible: action.visible
 
     Rectangle {
