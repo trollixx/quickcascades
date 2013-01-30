@@ -8,12 +8,14 @@ TARGET = $$qtLibraryTarget($$TARGET)
 uri = QuickCascades
 
 SOURCES += \
+    src/iconprovider.cpp \
     src/plugin.cpp \
     src/style.cpp \
     src/windowmanager.cpp
 
 HEADERS += \
     src/enums.h \
+    src/iconprovider.h \
     src/plugin.h \
     src/style.h \
     src/windowmanager.h
@@ -40,7 +42,8 @@ OTHER_FILES += \
     qml/QuickCascades/private/ToolBar.qml
 
 OTHER_FILES += \
-    qml/QuickCascades/themes/cascades-light.ini
+    qml/QuickCascades/themes/cascades-light.ini \
+    qml/QuickCascades/themes/subway-icons.ini
 
 qmldir.files = qml/QuickCascades/qmldir
 

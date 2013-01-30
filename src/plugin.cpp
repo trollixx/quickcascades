@@ -37,6 +37,7 @@
 #include "plugin.h"
 
 #include "enums.h"
+#include "iconprovider.h"
 #include "style.h"
 #include "windowmanager.h"
 
@@ -62,17 +63,34 @@ void QuickCascadesPlugin::initializeEngine(QQmlEngine *engine, const char *uri)
 {
     Q_UNUSED(uri)
 
-    if (engine->property("__qc_themeFileName").isValid()) {
-        m_themeFileName = engine->property("__qc_themeFileName").toString();
-    } else {
-        /// TODO: This is a workaroung to get a plugin path, a patch for Qt is needed
-        foreach (QString path, engine->importPathList()) {
-            if (QFileInfo(path + "/QuickCascades").exists()) {
-                m_themeFileName = path + "/QuickCascades/themes/cascades-light.ini";
-                break;
-            }
+    /// TODO: This is a workaroung to get a plugin path, a patch for Qt is needed
+    QString pluginPath;
+    foreach (QString path, engine->importPathList()) {
+        if (QFileInfo(path + "/QuickCascades").exists()) {
+            pluginPath = path;
+            break;
         }
     }
+    pluginPath += "/QuickCascades";
+
+    if (engine->property("__qc_themeFileName").isValid())
+        m_themeFileName = engine->property("__qc_themeFileName").toString();
+    else
+        m_themeFileName = pluginPath + "/themes/cascades-light.ini";
+
+    QString iconThemeFileName;
+    if (engine->property("__qc_iconThemeFileName").isValid())
+        iconThemeFileName = engine->property("__qc_iconThemeFileName").toString();
+    else
+        iconThemeFileName = pluginPath + "/themes/subway-icons.ini";
+
+    QString iconProviderId;
+    if (engine->property("__qc_iconProviderId").isValid())
+        iconProviderId = engine->property("__qc_iconProviderId").toString();
+    else
+        iconProviderId = "icons";
+
+    engine->addImageProvider(iconProviderId, new IconProvider(iconThemeFileName, pluginPath + "/icons"));
 }
 
 QObject *QuickCascadesPlugin::styleObjectProvider(QQmlEngine *engine, QJSEngine *scriptEngine)

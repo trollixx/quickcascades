@@ -101,7 +101,7 @@ Item {
         Image {
             anchors.verticalCenter: parent.verticalCenter
             height: 81; width: 81
-            source: tab.icon || "../icons/gear.png"
+            source: tab.icon || "image://icons/action-default"
         }
 
         Column {
