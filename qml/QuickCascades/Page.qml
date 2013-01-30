@@ -49,7 +49,7 @@ AbstractPane {
     property int actionBarAlignment: ActionBarAlignment.Justify
     property Action backAction: Action {
         id: defaultBackAction
-        icon: "image://icons/pagestack-back"
+        icon: Style.toolBarBackIcon
         text: qsTr("Back")
         visible: root.pageStack && root !== root.pageStack.initialPage
         onTriggered: root.pageStack.pop()
