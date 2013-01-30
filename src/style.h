@@ -118,8 +118,8 @@ private:
 
     QColor m_defaultHighlightColor;
 
-    QColor m_titleBarBackgroundColor;
-    qreal m_titleBarOpacity;
+    QColor m_pageBackgroundColor;
+    QUrl m_pageBackgroundImage;
 
     QColor m_tabMenuBackgroundColor;
     QColor m_tabMenuCurrentItemColor;
@@ -127,8 +127,8 @@ private:
     QColor m_tabMenuPressedItemBorderColor;
     int m_tabMenuPressedItemBorderWidth;
 
-    QColor m_pageBackgroundColor;
-    QUrl m_pageBackgroundImage;
+    QColor m_titleBarBackgroundColor;
+    qreal m_titleBarOpacity;
 
     QString m_toolBarBackBackgroundImage;
     QString m_toolBarBackIcon;
