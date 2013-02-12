@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtGraphicalEffects 1.0
 import QuickCascades 1.0
 
 ApplicationWindow {
@@ -62,11 +63,27 @@ ApplicationWindow {
                 Page {
                     titleBar: TitleBar {
                         title: qsTr("Tab 2")
+                        visibility: ChromeVisibility.Overlay
                     }
 
-                    actions: Action {
-                        text: "Open tabs"
-                        onTriggered: tabbedPane.sidebarState = SidebarState.VisibleFull
+                    Rectangle {
+                        anchors.centerIn: parent
+                        border {
+                            color: "green"
+                            width: 2
+                        }
+                        color: "#fefefe"
+                        height: 101; width: 250
+                        radius: 10
+
+                        TextInput {
+                            id: textInput
+                            anchors.fill: parent
+                            horizontalAlignment: TextInput.AlignHCenter
+                            verticalAlignment: TextInput.AlignVCenter
+
+                            Keys.onReturnPressed: textInput.focus = false
+                        }
                     }
 
                     Rectangle {
@@ -75,14 +92,12 @@ ApplicationWindow {
 
                         MouseArea {
                             anchors.fill: parent
-                            //onClicked: root.push(page2)
                         }
                     }
                 }
             },
             Tab {
-                description: text + " description"
-                text: "Tab 3"
+                text: "PageStack"
 
                 PageStack {
                     id: root
@@ -92,11 +107,9 @@ ApplicationWindow {
                             title: "Page 1"
                         }
 
+                        toolBarVisibility: ChromeVisibility.Overlay
+
                         actions: [
-                            Action {
-                                text: "Open tabs"
-                                onTriggered: tabbedPane.sidebarState = SidebarState.VisibleFull
-                            },
                             Action {
                                 text: "No action"
                                 onTriggered: console.log(text + " pressed")
@@ -192,22 +205,58 @@ ApplicationWindow {
                 text: "Tab 4"
 
                 Page {
-                    titleBar: TitleBar {
-                        title: qsTr("Tab 4")
-                    }
+                    id: page4
+
+                    Component.onCompleted: timer.start()
 
                     actions: Action {
                         text: "Open tabs"
                         onTriggered: tabbedPane.sidebarState = SidebarState.VisibleFull
                     }
+                    titleBar: TitleBar {
+                        title: qsTr("Tab 4")
+                        visibility: ChromeVisibility.Overlay
+                    }
+                    toolBarVisibility: ChromeVisibility.Overlay
 
                     Rectangle {
+                        id: rect
+                        anchors.centerIn: parent
+                        antialiasing: true
+                        radius: 20
+                        //smooth: true
                         color: "yellow"
                         height: 100; width: 100
+                        layer.enabled: true
 
                         MouseArea {
                             anchors.fill: parent
-                            //onClicked: root.push(page2)
+                            onClicked: {
+                                page4.toolBarVisibility = (page4.toolBarVisibility === ChromeVisibility.Hidden ? ChromeVisibility.Overlay : ChromeVisibility.Hidden)
+                                page4.titleBar.visibility = (page4.titleBar.visibility === ChromeVisibility.Hidden ? ChromeVisibility.Overlay : ChromeVisibility.Hidden)
+                            }
+                        }
+                    }
+
+                    DropShadow {
+                        anchors.fill: rect
+                        //fast: true
+                        horizontalOffset: 10
+                        verticalOffset: 10
+                        radius: 20
+                        samples: 16
+                        color: "black"
+                        source: rect
+                        antialiasing: true
+                        transparentBorder: true
+                    }
+
+                    Timer {
+                        id: timer
+                        interval: 3300
+                        onTriggered: {
+                            page4.toolBar.visibility = ChromeVisibility.Hidden
+                            page4.titleBar.visibility = ChromeVisibility.Hidden
                         }
                     }
                 }
