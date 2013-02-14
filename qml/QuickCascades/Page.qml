@@ -80,20 +80,21 @@ AbstractPane {
 
     Column {
         Item {
+            id: titleBarPlaceholder
             height: titleBar && titleBar.visibility === ChromeVisibility.Visible ? titleBar.height : 0
             width: root.width
         }
 
-        Item {
+        Rectangle {
             id: childrenWrapper
-            implicitHeight: root.height ? root.height
-                                          - (titleBar && titleBar.visibility === ChromeVisibility.Visible ? titleBar.height : 0)
-                                          - (root.toolBar.visible && root.toolBar.visibility === ChromeVisibility.Visible ? root.toolBar.height : 0) : 0
+            implicitHeight: root.height ? root.height - titleBarPlaceholder.height - toolBarPlaceholder.height : 0
             implicitWidth: root.width
         }
 
         Item {
-            height: root.toolBar.visibility === ChromeVisibility.Visible ? root.toolBar.height : 0
+            id: toolBarPlaceholder
+            height: root.toolBar.visibility === ChromeVisibility.Visible && !Qt.inputMethod.visible
+                    ? root.toolBar.height : 0
             width: root.width
         }
     }
