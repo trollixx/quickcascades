@@ -57,7 +57,18 @@ Rectangle {
 
         Item {
             id: contentWrapper
-            anchors.fill: parent
+            anchors {
+                top: root.top
+                bottom: vkbPlaceholder.top
+            }
+            width: root.width
+        },
+
+        Item {
+            id: vkbPlaceholder
+            anchors.bottom: root.bottom
+            height: Qt.inputMethod.keyboardRectangle.height
+            width: root.width
         },
 
         Item {
