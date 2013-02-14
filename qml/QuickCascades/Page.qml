@@ -85,7 +85,7 @@ AbstractPane {
             width: root.width
         }
 
-        Rectangle {
+        Item {
             id: childrenWrapper
             implicitHeight: root.height ? root.height - titleBarPlaceholder.height - toolBarPlaceholder.height : 0
             implicitWidth: root.width
