@@ -66,24 +66,13 @@ ApplicationWindow {
                         visibility: ChromeVisibility.Overlay
                     }
 
-                    Rectangle {
+                    actions: Action {
+                        text: "VKB Info"
+                        onTriggered: console.log(Qt.inputMethod.keyboardRectangle)
+                    }
+
+                    TextField {
                         anchors.centerIn: parent
-                        border {
-                            color: "green"
-                            width: 2
-                        }
-                        color: "#fefefe"
-                        height: 101; width: 250
-                        radius: 10
-
-                        TextInput {
-                            id: textInput
-                            anchors.fill: parent
-                            horizontalAlignment: TextInput.AlignHCenter
-                            verticalAlignment: TextInput.AlignVCenter
-
-                            Keys.onReturnPressed: textInput.focus = false
-                        }
                     }
 
                     Rectangle {
