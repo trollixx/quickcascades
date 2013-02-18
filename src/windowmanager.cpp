@@ -36,6 +36,11 @@
 
 #include "windowmanager.h"
 
+#include <QEvent>
+#include <QMouseEvent>
+#include <QQuickItem>
+#include <QQuickWindow>
+
 WindowManager::WindowManager(QObject *parent) :
     QObject(parent),
     m_appWindow(0),
@@ -51,10 +56,21 @@ QQuickItem *WindowManager::appWindow() const
 
 void WindowManager::setAppWindow(QQuickItem *item)
 {
-    if (item != m_appWindow) {
-        m_appWindow = item;
-        emit appWindowChanged();
+    if (item == m_appWindow)
+        return;
+
+    if (m_appWindow && m_appWindow->window())
+        m_appWindow->window()->removeEventFilter(this);
+
+    if (item) {
+        if (item->window())
+            item->window()->installEventFilter(this);
+        else
+            connect(item, SIGNAL(parentChanged(QQuickItem*)), this, SLOT(appWindowParentChanged(QQuickItem*)));
     }
+
+    m_appWindow = item;
+    emit appWindowChanged();
 }
 
 QQuickItem *WindowManager::tabbedPane() const
@@ -64,8 +80,35 @@ QQuickItem *WindowManager::tabbedPane() const
 
 void WindowManager::setTabbedPane(QQuickItem *item)
 {
-    if (item != m_tabbedPane) {
-        m_tabbedPane = item;
-        emit tabbedPaneChanged();
+    if (item == m_tabbedPane)
+        return;
+
+    m_tabbedPane = item;
+    emit tabbedPaneChanged();
+
+}
+
+bool WindowManager::eventFilter(QObject *watched, QEvent *event)
+{
+    if (watched != m_appWindow->window() || event->type() != QEvent::MouseButtonRelease)
+        return false;
+
+    if (m_appWindow->window()->activeFocusItem()
+            && m_appWindow->window()->activeFocusItem()->objectName() == "__qc_textField") {
+        QQuickItem *textField = m_appWindow->window()->activeFocusItem()->parentItem();
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
+        if (!textField->childrenRect().contains(textField->mapFromScene(mouseEvent->pos())))
+            m_appWindow->forceActiveFocus();
     }
+
+    return false;
+}
+
+
+void WindowManager::appWindowParentChanged(QQuickItem* item)
+{
+    if (item && item->window())
+        item->window()->installEventFilter(this);
+
+    /// TODO: Remove event filter
 }

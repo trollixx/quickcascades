@@ -55,11 +55,14 @@ public:
     QQuickItem *tabbedPane() const;
     void setTabbedPane(QQuickItem *item);
 
+    bool eventFilter(QObject * watched, QEvent * event);
+
 signals:
     void appWindowChanged();
     void tabbedPaneChanged();
 
-public slots:
+private slots:
+    void appWindowParentChanged(QQuickItem *item);
 
 private:
     QQuickItem *m_appWindow;
