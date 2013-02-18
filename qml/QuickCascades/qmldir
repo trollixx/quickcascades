@@ -11,3 +11,4 @@ PageStack 1.0 PageStack.qml
 Tab 1.0 Tab.qml
 TabbedPane 1.0 TabbedPane.qml
 TitleBar 1.0 TitleBar.qml
+TextField 1.0 TextField.qml
