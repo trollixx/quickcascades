@@ -70,7 +70,7 @@ Item {
         Image {
             anchors.horizontalCenter: parent.horizontalCenter
             height: 81; width: 81
-            source: tab.icon || "image://icons/action-default"
+            source: tab.iconSource
         }
 
         Label {

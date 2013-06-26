@@ -35,14 +35,11 @@
 ****************************************************************************/
 
 import QtQuick 2.1
+import QtQuick.Controls 1.0 as Controls
+import QuickCascades 1.0
 
-QtObject {
-    property bool checkable: false
-    property bool checked: false
-    property bool enabled: true
-    property string icon
-    property string text
+Controls.Action {
     property bool visible: true
 
-    signal triggered
+    iconSource: Style.actionBarDefaultIcon
 }

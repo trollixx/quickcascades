@@ -101,7 +101,7 @@ Item {
         Image {
             anchors.verticalCenter: parent.verticalCenter
             height: 81; width: 81
-            source: tab.icon || Style.actionBarDefaultIcon
+            source: tab.iconSource
         }
 
         Column {

@@ -79,7 +79,7 @@ Image {
         Image {
             anchors.horizontalCenter: parent.horizontalCenter
             height: 81; width: 81
-            source: action.icon
+            source: action.iconSource
         }
 
         Label {
