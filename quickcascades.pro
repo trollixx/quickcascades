@@ -37,6 +37,7 @@ OTHER_FILES += \
     qml/QuickCascades/private/BackActionDelegate.qml \
     qml/QuickCascades/private/TabBar.qml \
     qml/QuickCascades/private/TabBarDelegate.qml \
+    qml/QuickCascades/private/TabBarMenuDelegate.qml \
     qml/QuickCascades/private/TabMenuDelegate.qml \
     qml/QuickCascades/private/ToolBar.qml
 
