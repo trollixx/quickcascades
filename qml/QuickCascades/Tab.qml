@@ -34,7 +34,7 @@
 **
 ****************************************************************************/
 
-import QtQuick 2.0
+import QtQuick 2.1
 
 Action {
     default property AbstractPane content
