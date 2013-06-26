@@ -2,8 +2,8 @@ module QuickCascades
 plugin QuickCascades
 AbstractBar 1.0 AbstractBar.qml
 AbstractPane 1.0 AbstractPane.qml
-ActionBar 1.0 ActionBar.qml
 Action 1.0 Action.qml
+ActionBar 1.0 ActionBar.qml
 ApplicationWindow 1.0 ApplicationWindow.qml
 Label 1.0 Label.qml
 Page 1.0 Page.qml
