@@ -37,7 +37,7 @@
 import QtQuick 2.1
 import QuickCascades 1.0
 
-import "private"
+import "private" as Private
 
 AbstractPane {
     id: root
@@ -121,7 +121,7 @@ AbstractPane {
                 anchors.verticalCenter: parent.verticalCenter
                 Repeater {
                     model: tabs
-                    TabMenuDelegate {
+                    Private.TabMenuDelegate {
                         selected: index == currentIndex
                         tab: modelData
                         width: flickable.width

@@ -37,7 +37,7 @@
 import QtQuick 2.1
 import QuickCascades 1.0
 
-import "private"
+import "private" as Private
 
 AbstractPane {
     id: root
@@ -103,7 +103,7 @@ AbstractPane {
         data: titleBar
     }
 
-    ToolBar {
+    Private.ToolBar {
         id: defaultToolBar
         actions: root.actions
         backAction: root.backAction
