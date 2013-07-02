@@ -1,4 +1,5 @@
 import QtQuick 2.1
+import QtQuick.Controls 1.0
 import QtGraphicalEffects 1.0
 import QuickCascades 1.0
 
@@ -86,16 +87,15 @@ ApplicationWindow {
                 }
             },
             Tab {
-                text: "PageStack"
+                text: "StackView"
 
-                PageStack {
-                    id: root
+                StackView {
+                    id: stackView
 
-                    initialPage: Page {
+                    initialItem: Page {
                         titleBar: TitleBar {
                             title: "Page 1"
                         }
-
                         toolBarVisibility: ChromeVisibility.Overlay
 
                         actions: [
@@ -110,7 +110,7 @@ ApplicationWindow {
                             },
                             Action {
                                 text: "Go to Page 2"
-                                onTriggered: root.push(page2)
+                                onTriggered: stackView.push(page2)
                             }
                         ]
 
@@ -121,7 +121,7 @@ ApplicationWindow {
 
                             MouseArea {
                                 anchors.fill: parent
-                                onClicked: root.push(page2)
+                                onClicked: stackView.push(page2)
                             }
                         }
 
@@ -139,7 +139,7 @@ ApplicationWindow {
 
                             MouseArea {
                                 anchors.fill: parent
-                                onClicked: root.push(page2)
+                                onClicked: stackView.push(page2)
                             }
                         }
                     }
@@ -155,7 +155,7 @@ ApplicationWindow {
                                 },
                                 Action {
                                     text: "Go to Page 3"
-                                    onTriggered: root.push(page3)
+                                    onTriggered: stackView.push(page3)
                                 }
                             ]
 
@@ -166,7 +166,7 @@ ApplicationWindow {
 
                                 MouseArea {
                                     anchors.fill: parent
-                                    onClicked: root.pop()
+                                    onClicked: stackView.pop()
                                 }
                             }
 

@@ -54,7 +54,6 @@ void QuickCascadesPlugin::registerTypes(const char *uri)
     // @uri QuickCascades
     qmlRegisterUncreatableType<ActionBarAlignment>(uri, 1, 0, "ActionBarAlignment", "");
     qmlRegisterUncreatableType<ChromeVisibility>(uri, 1, 0, "ChromeVisibility", "");
-    qmlRegisterUncreatableType<PageStatus>(uri, 1, 0, "PageStatus", "");
     qmlRegisterUncreatableType<SidebarState>(uri, 1, 0, "SidebarState", "");
 }
 

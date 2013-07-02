@@ -78,8 +78,8 @@ AbstractBar {
         anchors {
             left: {
                 /// TODO: Better conditions are needed
-                if (root.pageStack && backAction.visible)
-                    backActionLoader.right
+                if (backAction.visible)
+                    backActionDelegate.right
                 else if (WindowManager.tabbedPane)
                     tabBar.right
                 else

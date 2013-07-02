@@ -35,6 +35,7 @@
 ****************************************************************************/
 
 import QtQuick 2.1
+import QtQuick.Controls 1.0
 import QuickCascades 1.0
 
 import "private" as Private
@@ -51,11 +52,9 @@ AbstractPane {
         id: defaultBackAction
         iconSource: Style.toolBarBackIcon
         text: qsTr("Back")
-        visible: root.pageStack && root !== root.pageStack.initialPage
-        onTriggered: root.pageStack.pop()
+        visible: root.Stack.view && root !== root.Stack.view.initialItem
+        onTriggered: root.Stack.view.pop()
     }
-    property PageStack pageStack
-    property int status: PageStatus.Inactive
     property TitleBar titleBar
     property AbstractBar toolBar: defaultToolBar
     property alias toolBarVisibility: defaultToolBar.visibility

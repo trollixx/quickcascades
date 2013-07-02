@@ -26,8 +26,6 @@ OTHER_FILES += \
     qml/QuickCascades/ApplicationWindow.qml \
     qml/QuickCascades/Label.qml \
     qml/QuickCascades/Page.qml \
-    qml/QuickCascades/PageStack.qml \
-    qml/QuickCascades/PageStack.js \
     qml/QuickCascades/Tab.qml \
     qml/QuickCascades/TabbedPane.qml \
     qml/QuickCascades/TitleBar.qml \

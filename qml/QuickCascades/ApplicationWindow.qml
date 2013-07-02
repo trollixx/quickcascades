@@ -52,7 +52,6 @@ Rectangle {
     data: [
         QtObject {
             id: internal
-            property PageStack currentPageStack
         },
 
         Item {
