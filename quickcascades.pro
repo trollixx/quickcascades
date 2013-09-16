@@ -7,38 +7,14 @@ CONFIG += qt plugin
 TARGET = $$qtLibraryTarget($$TARGET)
 uri = QuickCascades
 
-SOURCES += \
-    src/plugin.cpp \
-    src/style.cpp \
-    src/windowmanager.cpp
+SOURCES += $$files(src/*.cpp)
 
-HEADERS += \
-    src/enums.h \
-    src/plugin.h \
-    src/style.h \
-    src/windowmanager.h
+HEADERS += $$files(src/*.h)
 
 OTHER_FILES += \
     qml/QuickCascades/qmldir \
-    qml/QuickCascades/AbstractBar.qml \
-    qml/QuickCascades/AbstractPane.qml \
-    qml/QuickCascades/Action.qml \
-    qml/QuickCascades/ApplicationWindow.qml \
-    qml/QuickCascades/Label.qml \
-    qml/QuickCascades/Page.qml \
-    qml/QuickCascades/Tab.qml \
-    qml/QuickCascades/TabbedPane.qml \
-    qml/QuickCascades/TitleBar.qml \
-    qml/QuickCascades/TextField.qml \
-    qml/QuickCascades/private/ActionBar.qml \
-    qml/QuickCascades/private/ActionBarActionDelegate.qml \
-    qml/QuickCascades/private/BackActionDelegate.qml \
-    qml/QuickCascades/private/TabBar.qml \
-    qml/QuickCascades/private/TabBarDelegate.qml \
-    qml/QuickCascades/private/TabBarMenuDelegate.qml \
-    qml/QuickCascades/private/TabMenuDelegate.qml \
-    qml/QuickCascades/private/ToolBar.qml
-
+    $$files(qml/QuickCascades/*.qml) \
+    $$files(qml/QuickCascades/private/*.qml)
 
 OTHER_FILES += \
     qml/QuickCascades/themes/cascades-light.ini
